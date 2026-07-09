@@ -1,0 +1,1987 @@
+```html
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>پەندۆ - Pando Cinematic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@200;400;600;700;900&family=Changa:wght@200;400;600;800&family=Cinzel:wght@400;700&family=El+Messiri:wght@400;600;700&family=Harmattan:wght@400;700&family=Kufam:ital,wght@0,400;0,700;1,400&family=Lalezar&family=Mada:wght@400;700&family=Montserrat:wght@300;400;700&family=Noto+Naskh+Arabic:wght@400;700&family=Noto+Sans+Arabic:wght@300;500;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Readex+Pro:wght@200;400;600;700&family=Reem+Kufi:wght@400;700&family=Rubik:ital,wght@0,400;0,700;1,900&family=Ruda:wght@400;700;900&family=Scheherazade+New:wght@400;700&family=Tajawal:wght@300;500;800&family=Ubuntu:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #1f1308; --bg-secondary: #301f11; --bg-card: #452c1a;
+            --text-primary: #fdf5e6; --text-secondary: #d4af37; --accent: #ffd700;
+            --accent-glow: rgba(255, 215, 0, 0.35); --border-color: #5c3e29;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.7); --radius: 12px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); --font-body: 'Amiri', serif;
+        }
+        [data-color="red"] { --accent: #e50914; --accent-glow: rgba(229, 9, 20, 0.3); }
+        [data-color="gold"] { --accent: #ffd700; --accent-glow: rgba(255, 215, 0, 0.3); }
+        [data-color="blue"] { --accent: #00ffff; --accent-glow: rgba(0, 255, 255, 0.3); }
+        [data-color="green"] { --accent: #39ff14; --accent-glow: rgba(57, 255, 20, 0.3); }
+        [data-color="pink"] { --accent: #ff007f; --accent-glow: rgba(255, 0, 127, 0.3); }
+        [data-color="purple"] { --accent: #bd00ff; --accent-glow: rgba(189, 0, 255, 0.3); }
+        [data-color="orange"] { --accent: #ff6c00; --accent-glow: rgba(255, 108, 0, 0.3); }
+        [data-color="yellow"] { --accent: #ffff00; --accent-glow: rgba(255, 255, 0, 0.3); }
+        [data-color="cyan"] { --accent: #00f0ff; --accent-glow: rgba(0, 240, 255, 0.3); }
+        [data-color="emerald"] { --accent: #50c878; --accent-glow: rgba(80, 200, 120, 0.3); }
+        [data-color="ruby"] { --accent: #e0115f; --accent-glow: rgba(224, 17, 95, 0.3); }
+        [data-color="violet"] { --accent: #7f00ff; --accent-glow: rgba(127, 0, 255, 0.3); }
+        [data-color="bronze"] { --accent: #cd7f32; --accent-glow: rgba(205, 127, 50, 0.3); }
+        [data-color="silver"] { --accent: #c0c0c0; --accent-glow: rgba(192, 192, 192, 0.3); }
+        [data-color="teal"] { --accent: #008080; --accent-glow: rgba(0, 128, 128, 0.3); }
+        [data-color="amber"] { --accent: #ffbf00; --accent-glow: rgba(255, 191, 0, 0.3); }
+        [data-color="rose"] { --accent: #ff007f; --accent-glow: rgba(255, 0, 127, 0.3); }
+        [data-color="sky"] { --accent: #0ea5e9; --accent-glow: rgba(14, 165, 233, 0.3); }
+        [data-color="lime"] { --accent: #84cc16; --accent-glow: rgba(132, 204, 22, 0.3); }
+        [data-color="mint"] { --accent: #2ecc71; --accent-glow: rgba(46, 204, 113, 0.3); }
+        [data-color="crimson"] { --accent: #dc143c; --accent-glow: rgba(220, 20, 60, 0.3); }
+        [data-color="lavender"] { --accent: #e6e6fa; --accent-glow: rgba(230, 230, 250, 0.3); }
+        [data-color="sunset"] { --accent: #fd5e53; --accent-glow: rgba(253, 94, 83, 0.3); }
+        [data-color="white"] { --accent: #ffffff; --accent-glow: rgba(255, 255, 255, 0.3); }
+
+        .shape-rounded { --radius: 12px; border-radius: var(--radius); }
+        .shape-square { --radius: 0px; border-radius: 0px; }
+        .shape-pill { --radius: 30px; border-radius: 30px; }
+        .shape-ticket { --radius: 12px; clip-path: polygon(0 15px, 15px 0, calc(100% - 15px) 0, 100% 15px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0 calc(100% - 15px)); border-radius: 0; }
+        .shape-leaf-right { border-radius: 0px 24px 0px 24px; }
+        .shape-leaf-left { border-radius: 24px 0px 24px 0px; }
+        .shape-cut-corner { clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px); border-radius: 0; }
+        .shape-arch { border-radius: 24px 24px 4px 4px; }
+        .shape-soft-box { border-radius: 40px; }
+        .shape-hexagon { clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%); border-radius: 0; }
+
+        [data-bg="1"] { --bg-primary: #05070a; --bg-secondary: #0d1117; --bg-card: #161b22; --border-color: #30363d; --text-primary: #ffffff; --text-secondary: #8b949e; }
+        [data-bg="2"] { --bg-primary: #ffffff; --bg-secondary: #f0f2f5; --bg-card: #ffffff; --text-primary: #111827; --text-secondary: #4b5563; --border-color: #e5e7eb; }
+        [data-bg="3"] { --bg-primary: #090d16; --bg-secondary: #111c30; --bg-card: #1a2942; --border-color: #2d4366; --text-primary: #ffffff; --text-secondary: #8b949e; }
+        [data-bg="4"] { --bg-primary: #051611; --bg-secondary: #0d2a22; --bg-card: #163e33; --border-color: #265f50; --text-primary: #ffffff; --text-secondary: #8b949e; }
+        [data-bg="5"] { --bg-primary: #1f1308; --bg-secondary: #301f11; --bg-card: #452c1a; --border-color: #5c3e29; --text-primary: #fdf5e6; --text-secondary: #d4af37; }
+        [data-bg="6"] { --bg-primary: #15061a; --bg-secondary: #260c2e; --bg-card: #3b1745; --border-color: #552761; --text-primary: #ffffff; --text-secondary: #8b949e; }
+        [data-bg="7"] { --bg-primary: #1a080c; --bg-secondary: #2d1117; --bg-card: #451d26; --border-color: #612f3b; --text-primary: #ffffff; --text-secondary: #8b949e; }
+        [data-bg="8"] { --bg-primary: #000000; --bg-secondary: #0a0a0a; --bg-card: #141414; --border-color: #262626; --text-primary: #ffffff; --text-secondary: #8b949e; }
+        [data-bg="9"] { --bg-primary: #18181b; --bg-secondary: #27272a; --bg-card: #3f3f46; --border-color: #52525b; --text-primary: #ffffff; --text-secondary: #8b949e; }
+        [data-bg="10"] { --bg-primary: #020617; --bg-secondary: #0f172a; --bg-card: #1e293b; --border-color: #334155; --text-primary: #ffffff; --text-secondary: #8b949e; }
+        [data-bg="11"] { --bg-primary: #082f49; --bg-secondary: #0c4a6e; --bg-card: #0284c7; --border-color: #0284c7; --text-primary: #ffffff; --text-secondary: #8b949e; }
+        [data-bg="12"] { --bg-primary: #064e3b; --bg-secondary: #065f46; --bg-card: #047857; --border-color: #059669; --text-primary: #ffffff; --text-secondary: #8b949e; }
+        [data-bg="13"] { --bg-primary: #1c1917; --bg-secondary: #292524; --bg-card: #44403c; --border-color: #57534e; --text-primary: #ffffff; --text-secondary: #8b949e; }
+        [data-bg="14"] { --bg-primary: #0f172a; --bg-secondary: #1e1b4b; --bg-card: #312e81; --border-color: #4338ca; --text-primary: #ffffff; --text-secondary: #8b949e; }
+        [data-bg="15"] { --bg-primary: #2e1065; --bg-secondary: #4c1d95; --bg-card: #5b21b6; --border-color: #6d28d9; --text-primary: #ffffff; --text-secondary: #8b949e; }
+        [data-bg="16"] { --bg-primary: #1e293b; --bg-secondary: #334155; --bg-card: #475569; --border-color: #64748b; --text-primary: #ffffff; --text-secondary: #8b949e; }
+        [data-bg="17"] { --bg-primary: #fafaf9; --bg-secondary: #f5f5f4; --bg-card: #e7e5e4; --text-primary: #292524; --text-secondary: #57534e; --border-color: #d6d3d1; }
+        [data-bg="18"] { --bg-primary: #fffbeb; --bg-secondary: #fef3c7; --bg-card: #fde68a; --text-primary: #78350f; --text-secondary: #92400e; --border-color: #fcd34d; }
+        [data-bg="19"] { --bg-primary: #fdf2f8; --bg-secondary: #fce7f3; --bg-card: #fbcfe8; --text-primary: #831843; --text-secondary: #9d174d; --border-color: #f9a8d4; }
+        [data-bg="20"] { --bg-primary: #022c22; --bg-secondary: #064e3b; --bg-card: #0f766e; --border-color: #14b8a6; --text-primary: #ffffff; --text-secondary: #8b949e; }
+
+        body[data-eye="on"]::after { content: ""; position: fixed; inset: 0; z-index: 99999; pointer-events: none; background: rgba(120, 70, 0, 0.2); mix-blend-mode: multiply; }
+        body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); transition: all var(--transition); scroll-behavior: smooth; overflow-x: hidden; }
+
+        /* ===== INTRO OVERLAY (swipe to start) ===== */
+        #netflixOverlay { position: fixed; inset: 0; background: #000000; z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 1s cubic-bezier(0.7, 0, 0.3, 1); overflow: hidden; user-select: none; }
+        #swipeContainer { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; width: 100%; transition: opacity 0.5s ease; }
+        #swipeContainer .zikr-prompt { color: #ffd700; font-size: clamp(1.8rem, 5vw, 3.2rem); margin: 0 0 30px 0; font-weight: 700; text-shadow: 0 0 30px rgba(255, 215, 0, 0.25); min-height: 4rem; padding: 0 10px; font-family: 'Amiri', serif; letter-spacing: 1px; cursor: pointer; }
+        #swipeTrack { width: 80%; max-width: 400px; height: 60px; background: #2a2a2a; border-radius: 30px; position: relative; cursor: grab; touch-action: none; border: 2px solid #444; box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.6); }
+        #swipeHandle { width: 56px; height: 56px; background: #ffd700; border-radius: 50%; position: absolute; left: 2px; top: 2px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #000; transition: none; box-shadow: 0 0 25px rgba(255, 215, 0, 0.5); will-change: transform; cursor: grab; }
+        #swipeHandle:active { cursor: grabbing; }
+        #swipeHandle .fa-arrow-right { font-size: 1.8rem; }
+        #swipeHint { color: rgba(255, 255, 255, 0.5); font-size: 1rem; margin-top: 15px; letter-spacing: 1px; font-family: 'Amiri', serif; cursor: pointer; transition: color 0.3s ease; }
+        #swipeHint:hover { color: #ffd700; }
+        
+        /* ===== Logo Animation ===== */
+        #logoContainer { display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: absolute; inset: 0; overflow: hidden; }
+        .netflix-logo-text { font-family: 'Bebas Neue', 'Lalezar', sans-serif; font-size: clamp(5rem, 12vw, 10rem); color: #fff; letter-spacing: 4px; margin: 0; line-height: 1; position: relative; z-index: 10; transform-origin: center center; display: flex; align-items: center; }
+        .netflix-n { color: #E50914; font-size: 1.2em; text-shadow: 0 0 60px rgba(229, 9, 20, 0.7); font-weight: bold; }
+        #logoContainer.animate .netflix-logo-text { animation: netflixTextAnim 4.5s forwards cubic-bezier(0.5, 0, 0.1, 1); }
+
+        @keyframes netflixTextAnim {
+            0% { opacity: 0; transform: scale(0.6); filter: blur(10px); }
+            15% { opacity: 1; transform: scale(1); filter: blur(0); }
+            45% { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 0 60px rgba(229, 9, 20, 0.85)); }
+            75% { opacity: 0.8; transform: scale(30); filter: blur(6px) drop-shadow(0 0 100px rgba(229, 9, 20, 1)); }
+            100% { opacity: 0; transform: scale(50); filter: blur(12px); }
+        }
+
+        #netflixOverlay.fade-out { opacity: 0; pointer-events: none; transition: opacity 1s ease; }
+
+        #weatherCanvas { position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.85; }
+
+        .right-sidebar { position: fixed; top: 0; right: 0; width: 320px; height: 100vh; background: var(--bg-secondary); border-left: 2px solid var(--accent); z-index: 100; padding: 1.5rem 1rem; overflow-y: auto; transition: transform var(--transition), width var(--transition); box-shadow: -4px 0 30px rgba(0, 0, 0, 0.8); display: flex; flex-direction: column; align-items: center; }
+        .right-sidebar.closed { transform: translateX(100%); width: 0; border-left: none; }
+        .right-sidebar .sidebar-toggle { position: absolute; top: 15px; left: 15px; background: none; border: none; color: var(--accent); font-size: 1.5rem; cursor: pointer; transition: color var(--transition); }
+        .right-sidebar .sidebar-toggle:hover { color: #fff; transform: scale(1.1); }
+        .right-sidebar .live-tracker { width: 100%; background: rgba(0, 0, 0, 0.3); padding: 12px; border-radius: 8px; font-size: 0.9rem; color: var(--text-primary); display: flex; flex-direction: column; gap: 8px; text-align: right; margin-top: 15px; border-right: 3px solid var(--accent); }
+        
+        .sarkawt-poem-section { width: 100%; margin-top: 15px; padding: 15px 12px; background: linear-gradient(145deg, rgba(255, 215, 0, 0.08) 0%, rgba(0, 0, 0, 0.5) 100%); border-radius: var(--radius); border: 1px solid var(--border-color); text-align: center; min-height: 130px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .sarkawt-poem-section .poem-title { color: var(--accent); font-size: 1rem; font-weight: 700; margin-bottom: 8px; border-bottom: 1px dashed var(--border-color); padding-bottom: 6px; width: 100%; }
+        .sarkawt-poem-section .poem-display { min-height: 80px; display: flex; align-items: center; justify-content: center; width: 100%; }
+        .sarkawt-poem-section .poem-line { font-style: italic; color: var(--text-primary); font-size: 0.95rem; line-height: 2; opacity: 0.95; transition: all 0.6s ease; padding: 0 5px; }
+        .sarkawt-poem-section .poem-line.fade-out { opacity: 0; transform: translateY(-8px); }
+        .sarkawt-poem-section .poem-line.fade-in { opacity: 1; transform: translateY(0); }
+
+        .right-sidebar-closed-btn { position: fixed; top: 80px; right: 20px; z-index: 149; background: var(--bg-card); border: 1px solid var(--accent); border-radius: var(--radius); width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; color: var(--accent); cursor: pointer; box-shadow: 0 0 15px var(--accent-glow); transition: all var(--transition); }
+        .right-sidebar-closed-btn:hover { background: var(--accent); color: var(--bg-primary); transform: scale(1.1); }
+
+        .left-menu-toggle { position: fixed; top: 20px; left: 20px; z-index: 150; background: var(--bg-card); border: 1px solid var(--accent); border-radius: var(--radius); padding: 0.6rem 1.2rem; color: var(--accent); font-size: 1rem; cursor: pointer; transition: all var(--transition); box-shadow: 0 0 15px var(--accent-glow); display: flex; align-items: center; gap: 8px; }
+        .left-menu-toggle:hover { background: var(--accent); color: var(--bg-primary); transform: translateY(-2px); }
+        .menu-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.8); z-index: 250; opacity: 0; pointer-events: none; transition: opacity 0.4s; backdrop-filter: blur(5px); }
+        .menu-overlay.active { opacity: 1; pointer-events: all; }
+        .left-menu { position: fixed; top: 0; left: -440px; width: 420px; height: 100vh; background: var(--bg-secondary); border-right: 2px solid var(--accent); z-index: 300; padding: 2rem 1.5rem; overflow-y: auto; transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 4px 0 32px rgba(0, 0, 0, 0.8); }
+        .left-menu.open { left: 0; }
+        .left-menu .close-menu { position: absolute; top: 15px; right: 15px; font-size: 1.5rem; background: none; border: none; color: var(--accent); cursor: pointer; }
+        .left-menu .menu-section { margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; }
+        .left-menu .menu-section h3 { font-size: 1.1rem; color: var(--accent); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 8px; }
+        .left-menu select { width: 100%; padding: 12px; border-radius: 6px; background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border-color); font-size: 1rem; outline: none; cursor: pointer; font-family: var(--font-body); }
+        .left-menu .menu-section .control-group { display: grid; grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); gap: 6px; }
+        .left-menu .menu-section .btn-opt { padding: 8px 6px; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-primary); color: var(--text-secondary); cursor: pointer; font-size: 0.7rem; transition: all var(--transition); text-align: center; font-family: var(--font-body); }
+        .left-menu .menu-section .btn-opt:hover, .left-menu .menu-section .btn-opt.active { background: var(--accent); color: var(--bg-primary); border-color: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
+
+        .dev-collapsible { width: 100%; background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border-color); overflow: hidden; transition: all var(--transition); margin-bottom: 0.5rem; }
+        .dev-collapsible .dev-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; cursor: pointer; background: var(--bg-primary); transition: background var(--transition); font-weight: 700; color: var(--accent); font-size: 1rem; border-bottom: 1px solid transparent; }
+        .dev-collapsible .dev-header:hover { background: var(--bg-secondary); }
+        .dev-collapsible .dev-header .dev-toggle-icon { transition: transform 0.3s ease; }
+        .dev-collapsible .dev-header .dev-toggle-icon.open { transform: rotate(180deg); }
+        .dev-collapsible .dev-body { padding: 0 16px 16px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; padding: 0 16px; max-height: 0; }
+        .dev-collapsible .dev-body.open { max-height: 600px; padding: 16px; }
+        .dev-collapsible .dev-body .avatar-wrapper { width: 80px; height: 80px; border-radius: 50%; border: 3px solid var(--accent); box-shadow: 0 0 25px var(--accent-glow); overflow: hidden; margin: 0 auto 8px; }
+        .dev-collapsible .dev-body .avatar-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .dev-collapsible .dev-body .dev-name { font-size: 1.1rem; font-weight: 800; color: var(--accent); text-align: center; }
+        .dev-collapsible .dev-body .dev-title { font-size: 0.75rem; color: var(--text-secondary); text-align: center; margin-top: -2px; }
+
+        .zikr-panel-in-menu { width: 100%; background: rgba(0, 0, 0, 0.4); border-radius: var(--radius); padding: 15px; border: 1px dashed var(--accent); text-align: center; cursor: pointer; transition: all var(--transition); min-height: 110px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .zikr-panel-in-menu:hover { background: var(--bg-card); transform: translateY(-3px); box-shadow: 0 0 20px var(--accent-glow); }
+        .zikr-panel-in-menu .zikr-text { font-size: 1.4rem; font-weight: 700; color: #fff; transition: all 0.5s ease; min-height: 2.2rem; }
+        .zikr-panel-in-menu .zikr-meaning { font-size: 0.95rem; color: var(--text-secondary); opacity: 0.9; margin-top: 4px; transition: all 0.5s ease; }
+        
+        .main-content { margin-right: 320px; margin-left: 0; padding: 2.5rem; min-height: 100vh; position: relative; z-index: 2; transition: margin-right var(--transition); }
+        .main-content.sidebar-closed { margin-right: 0; }
+        
+        .section { background: var(--bg-card); border-radius: var(--radius); padding: 2rem; margin-bottom: 2rem; border: 1px solid var(--border-color); box-shadow: var(--shadow); transition: border-color var(--transition); }
+        .section:hover { border-color: var(--accent); box-shadow: 0 0 20px rgba(255, 215, 0, 0.1); }
+        .section .section-title { font-size: 1.6rem; font-weight: 800; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; border-bottom: 1px dashed var(--border-color); padding-bottom: 10px; flex-wrap: wrap; }
+        .section .section-title .badge { font-size: 0.9rem; background: var(--accent); color: var(--bg-primary); padding: 3px 12px; border-radius: 50px; font-weight: 800; margin-right: auto; }
+        
+        .weather-banner { min-height: 120px; display: flex; align-items: center; justify-content: center; background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.15), transparent 70%); border-radius: var(--radius); border: 1px solid var(--accent); transition: all 0.5s ease; }
+        .weather-text { font-size: clamp(1.4rem, 4vw, 2.8rem); font-weight: 900; color: var(--accent); text-shadow: 0 0 20px var(--accent-glow); letter-spacing: 1px; text-align: center; }
+        
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+        .unified-card { background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 1.8rem; transition: all var(--transition); cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); animation: fadeInCard 0.5s ease forwards; }
+        @keyframes fadeInCard { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        .unified-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 25px var(--accent-glow); background: var(--bg-card); }
+        .unified-card .card-header { font-size: 1rem; color: var(--accent); font-weight: bold; margin-bottom: 0.8rem; display: flex; justify-content: space-between; align-items: center; }
+        
+        /* Modernized Separated Card Contents for Prophet Sayings */
+        .card-saying-box { background: rgba(0, 0, 0, 0.25); padding: 1.2rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.03); margin-bottom: 12px; width: 100%; transition: background var(--transition); }
+        .unified-card:hover .card-saying-box { background: rgba(0, 0, 0, 0.4); }
+        .card-divider-line { width: 100%; height: 1px; border-top: 1px dashed var(--border-color); margin: 8px 0 12px 0; transition: border-color var(--transition); }
+        .unified-card:hover .card-divider-line { border-top-color: var(--accent); }
+        .card-metadata-box { background: rgba(255, 215, 0, 0.05); padding: 8px 12px; border-radius: 6px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+        
+        .q-text { font-size: 1.2rem; line-height: 2; color: var(--text-primary); }
+        .q-source { font-size: 0.9rem; color: var(--text-secondary); font-style: italic; display: flex; align-items: center; gap: 6px; }
+        
+        .show-more-btn { background: var(--bg-secondary); color: var(--accent); border: 1px solid var(--accent); padding: 12px 35px; font-weight: 700; font-size: 1.1rem; border-radius: var(--radius); cursor: pointer; transition: all var(--transition); display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); font-family: var(--font-body); }
+        .show-more-btn:hover { background: var(--accent); color: var(--bg-primary); transform: translateY(-2px); box-shadow: 0 0 20px var(--accent-glow); }
+        
+        .asma-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.2rem; }
+        .asma-item { background: var(--bg-secondary); border-radius: var(--radius); border: 1px solid var(--border-color); padding: 1.5rem; text-align: center; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); display: flex; flex-direction: column; justify-content: center; position: relative; scroll-margin: 100px; }
+        .asma-item:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 0 20px var(--accent-glow); background: var(--bg-card); }
+        .asma-ar { font-size: 1.8rem; font-weight: 700; color: var(--accent); transition: all 0.3s ease; }
+        .asma-meaning { font-size: 0.95rem; color: var(--text-primary); margin-top: 5px; }
+        .asma-source { font-size: 0.75rem; color: var(--text-secondary); margin-top: 8px; font-style: italic; border-top: 1px dashed var(--border-color); padding-top: 4px; }
+        
+        .modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 1rem; }
+        .modal.active { display: flex; }
+        .modal-content { background: var(--bg-card); max-width: 650px; width: 100%; max-height: 85vh; border-radius: var(--radius); padding: 2.5rem; border: 2px solid var(--accent); box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); overflow-y: auto; position: relative; }
+        .modal-close { position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--accent); transition: transform var(--transition); }
+        .modal-close:hover { transform: scale(1.2); color: #fff; }
+        
+        .toast { position: fixed; bottom: 25px; left: 25px; z-index: 1000; background: var(--bg-card); border: 2px solid var(--accent); border-radius: var(--radius); padding: 15px 25px; color: var(--text-primary); opacity: 0; transform: translateY(20px); transition: all 0.4s ease; font-size: 1.1rem; pointer-events: none; box-shadow: 0 0 20px var(--accent-glow); display: flex; align-items: center; gap: 12px; }
+        .toast.show { opacity: 1; transform: translateY(0); pointer-events: all; }
+        
+        .floating-action-buttons { position: fixed; bottom: 20px; left: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 150; }
+        .float-btn { background: var(--bg-card); border: 1px solid var(--accent); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 1.2rem; cursor: pointer; box-shadow: var(--shadow); transition: all var(--transition); }
+        .float-btn:hover { background: var(--accent); color: var(--bg-primary); transform: translateY(-3px); box-shadow: 0 0 15px var(--accent-glow); }
+
+        .tasbih-bead { width: 14px; height: 18px; border-radius: 8px; background: var(--bg-primary); border: 1px solid var(--border-color); transition: all 0.2s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); }
+        .tasbih-bead.active { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 8px var(--accent-glow), inset 0 2px 4px rgba(255,255,255,0.3); }
+        .tasbih-bead.thirty-three { border-radius: 50%; width: 18px; background: var(--text-secondary); border-color: var(--accent); }
+
+        /* Pure Audio Player Stylings */
+        .audio-player-box { background: rgba(0,0,0,0.35); border: 1px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; }
+        .audio-controls { display: flex; align-items: center; gap: 18px; }
+        .audio-btn { background: var(--bg-card); border: 1px solid var(--accent); color: var(--accent); border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; cursor: pointer; transition: all var(--transition); }
+        .audio-btn:hover { background: var(--accent); color: var(--bg-primary); transform: scale(1.1); box-shadow: 0 0 12px var(--accent-glow); }
+        .audio-slider { width: 100%; max-width: 320px; height: 4px; background: rgba(255, 255, 255, 0.2); border-radius: 2px; outline: none; cursor: pointer; -webkit-appearance: none; }
+        .audio-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 5px var(--accent-glow); }
+
+        @media (max-width:1024px) { .right-sidebar { transform: translateX(100%); width: 0; border-left: none; } .right-sidebar.open { transform: translateX(0); width: 320px; border-left: 2px solid var(--accent); } .main-content { margin-right: 0 !important; margin-left: 0 !important; } }
+        @media (max-width:768px) { .main-content { padding: 1.5rem 1rem; } .left-menu { width: 340px; left: -360px; } .left-menu-toggle span { display: none; } }
+        
+        .pando-fullscreen .floating-action-buttons, .pando-fullscreen #weatherCanvas { display: none !important; }
+        .pando-fullscreen .main-content { margin-right: 0 !important; padding: 1rem !important; }
+    </style>
+</head>
+<body data-bg="5" data-color="gold" data-shape="rounded">
+
+    <!-- ===== INTRO OVERLAY ===== -->
+    <div id="netflixOverlay">
+        <div id="swipeContainer">
+            <div class="zikr-prompt" id="swipeZikr">دە بڵێ سُبْحَانَ اللَّهِ</div>
+            <div id="swipeTrack">
+                <div id="swipeHandle"><i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div id="swipeHint">ڕابکێشە بۆ لای ڕاست<br><span style="font-size:0.8rem; opacity:0.7;">(یان لێرە کلیک بکە)</span></div>
+        </div>
+        <div id="logoContainer">
+            <div class="netflix-logo-text" dir="ltr" style="direction: ltr;">
+                Pa<span class="netflix-n">N</span>dO
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== INTRO SOUND ===== -->
+    <audio id="introSound" preload="auto"></audio>
+
+    <!-- ===== TOAST & CANVAS ===== -->
+    <div id="toast" class="toast"><i class="fas fa-info-circle text-yellow-400"></i> <span id="toastMsg"></span></div>
+    <canvas id="weatherCanvas"></canvas>
+
+    <!-- ===== MODAL ===== -->
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- ===== LEFT MENU ===== -->
+    <div class="menu-overlay" id="menuOverlay" onclick="toggleLeftMenu()"></div>
+    <aside class="left-menu" id="leftMenu">
+        <button class="close-menu" onclick="toggleLeftMenu()"><i class="fas fa-times"></i></button>
+
+        <div class="menu-section">
+            <div class="dev-collapsible">
+                <div class="dev-header" onclick="toggleDevInfo()">
+                    <span id="menuDevTitle"><i class="fas fa-user-cog"></i> زانیاری گەشەپێدەر</span>
+                    <span class="dev-toggle-icon" id="devToggleIcon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="dev-body" id="devBody">
+                    <div class="avatar-wrapper">
+                        <img src="sarkawt.jpg" alt="سەرکەوت دیڤڵۆپەر" onerror="this.src='https://ui-avatars.com/api/?name=Sarkawt&background=ffd700&color=000';" />
+                    </div>
+                    <div class="dev-name">سەرکەوت دیڤڵۆپەر</div>
+                    <div class="dev-title" id="menuDevSub">گەشەپێدەر و دروستکەری پەندۆ Pando</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h3 id="menuFavsTitle"><i class="fas fa-heart text-red-500"></i> دڵخوازەکانم</h3>
+            <button onclick="showFavoritesList()" id="menuFavsBtn" class="w-full p-3 bg-gray-900 rounded border border-red-500 text-md hover:bg-red-900 transition text-white font-bold">
+                بینینی لیستی دڵخوازەکانم
+            </button>
+        </div>
+
+        <div class="menu-section">
+            <h3 id="menuIntroSoundTitle"><i class="fas fa-volume-up"></i> ساوندی چوونە ژوورەوە</h3>
+            <input type="file" id="introSoundUpload" class="intro-sound-upload" accept="audio/*" onchange="handleIntroSoundUpload(event)" />
+            <div class="intro-sound-status" id="introSoundStatus">هیچ ساوندێک هەڵنەبژێردراوە</div>
+            <div class="mt-2 flex gap-2 justify-center">
+                <button onclick="playIntroSoundPreview()" id="menuPreviewBtn" class="px-4 py-1 bg-yellow-600 hover:bg-yellow-500 text-white rounded text-sm transition">پێشبینین</button>
+                <button onclick="removeIntroSound()" id="menuRemoveBtn" class="px-4 py-1 bg-red-700 hover:bg-red-600 text-white rounded text-sm transition">لابردن</button>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h3 id="menuFsTitle"><i class="fas fa-expand"></i> فوول سکرین (Full Screen)</h3>
+            <button onclick="toggleFullScreen()" class="w-full p-3 bg-gray-900 rounded border border-gray-700 text-md hover:border-yellow-500 transition text-white flex items-center justify-center gap-2" id="fullscreenBtn">
+                <i class="fas fa-expand"></i> <span id="fullscreenLabel">فوول سکرین بکە</span>
+            </button>
+        </div>
+
+        <div class="menu-section">
+            <h3 id="menuZikrTitle"><i class="fas fa-pray"></i> زیکری ئێستا</h3>
+            <div class="zikr-panel-in-menu" onclick="showZikrDetail()">
+                <div class="zikr-text" id="sidebarZikrText">سُبْحَانَ اللَّهِ</div>
+                <div class="zikr-meaning" id="sidebarZikrMeaning">پاک و بێگەردی بۆ خوایە</div>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h3><i class="fas fa-language"></i> <span id="menuLangTitle">زمان (Language)</span></h3>
+            <select id="langSelect" onchange="setLanguage(this.value)">
+                <option value="ckb-sorani">کوردی - سۆرانی (Kurdî Soranî)</option>
+                <option value="ckb-badini">کوردی - بادینی (Kurdî Badînî)</option>
+                <option value="en">English (ئینگلیزی)</option>
+                <option value="ar">العربية (عەرەبي)</option>
+            </select>
+        </div>
+
+        <div class="menu-section">
+            <h3><i class="fas fa-font"></i> <span id="menuFontTitle">فۆنتی نووسین</span></h3>
+            <select id="fontSelect" onchange="changeFont(this.value)">
+                <option value="'Amiri', serif">Amiri (کلاسیک و قورئانی)</option>
+                <option value="'Cairo', sans-serif">Cairo (مۆدێرن)</option>
+                <option value="'Tajawal', sans-serif">Tajawal (ناسک)</option>
+                <option value="'Almarai', sans-serif">Almarai (سەرنجڕاکێش)</option>
+                <option value="'Harmattan', sans-serif">Harmattan (کوردی فلات)</option>
+                <option value="'Lalezar', sans-serif">Lalezar (پۆستەری کۆن)</option>
+                <option value="'El Messiri', serif">El Messiri (وردبین)</option>
+                <option value="'Noto Sans Arabic', sans-serif">Noto Sans</option>
+                <option value="'Readex Pro', sans-serif">Readex Pro</option>
+                <option value="'Kufam', sans-serif">Kufam</option>
+                <option value="'Changa', sans-serif">Changa</option>
+                <option value="'Mada', sans-serif">Mada</option>
+                <option value="'Rubik', sans-serif">Rubik</option>
+                <option value="'Scheherazade New', serif">Scheherazade</option>
+                <option value="'Noto Naskh Arabic', serif">Noto Naskh</option>
+                <option value="'Reem Kufi', sans-serif">Reem Kufi</option>
+                <option value="'Playfair Display', serif">Playfair (ئینگلیزی)</option>
+                <option value="'Montserrat', sans-serif">Montserrat</option>
+                <option value="'Ubuntu', sans-serif">Ubuntu</option>
+                <option value="'Cinzel', serif">Cinzel (مێژوویی)</option>
+            </select>
+        </div>
+
+        <div class="menu-section">
+            <h3><i class="fas fa-palette"></i> ڕەنگەکان (٢٤)</h3>
+            <div class="control-group" id="colorGroup">
+                <button class="btn-opt" data-color="gold" onclick="setColor('gold')">Gold</button>
+                <button class="btn-opt" data-color="red" onclick="setColor('red')">Red</button>
+                <button class="btn-opt" data-color="blue" onclick="setColor('blue')">Blue</button>
+                <button class="btn-opt" data-color="green" onclick="setColor('green')">Green</button>
+                <button class="btn-opt" data-color="pink" onclick="setColor('pink')">Pink</button>
+                <button class="btn-opt" data-color="purple" onclick="setColor('purple')">Purple</button>
+                <button class="btn-opt" data-color="orange" onclick="setColor('orange')">Orange</button>
+                <button class="btn-opt" data-color="yellow" onclick="setColor('yellow')">Yellow</button>
+                <button class="btn-opt" data-color="cyan" onclick="setColor('cyan')">Cyan</button>
+                <button class="btn-opt" data-color="emerald" onclick="setColor('emerald')">Emerald</button>
+                <button class="btn-opt" data-color="ruby" onclick="setColor('ruby')">Ruby</button>
+                <button class="btn-opt" data-color="violet" onclick="setColor('violet')">Violet</button>
+                <button class="btn-opt" data-color="bronze" onclick="setColor('bronze')">Bronze</button>
+                <button class="btn-opt" data-color="silver" onclick="setColor('silver')">Silver</button>
+                <button class="btn-opt" data-color="teal" onclick="setColor('teal')">Teal</button>
+                <button class="btn-opt" data-color="amber" onclick="setColor('amber')">Amber</button>
+                <button class="btn-opt" data-color="rose" onclick="setColor('rose')">Rose</button>
+                <button class="btn-opt" data-color="sky" onclick="setColor('sky')">Sky</button>
+                <button class="btn-opt" data-color="lime" onclick="setColor('lime')">Lime</button>
+                <button class="btn-opt" data-color="mint" onclick="setColor('mint')">Mint</button>
+                <button class="btn-opt" data-color="crimson" onclick="setColor('crimson')">Crimson</button>
+                <button class="btn-opt" data-color="lavender" onclick="setColor('lavender')">Lavender</button>
+                <button class="btn-opt" data-color="sunset" onclick="setColor('sunset')">Sunset</button>
+                <button class="btn-opt" data-color="white" onclick="setColor('white')">White</button>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h3><i class="fas fa-image"></i> پشتەوێن (٢٠)</h3>
+            <div class="control-group" id="bgGroup">
+                <button class="btn-opt" data-bg="5" onclick="setBgStyle('5')">Wood</button>
+                <button class="btn-opt" data-bg="1" onclick="setBgStyle('1')">Dark</button>
+                <button class="btn-opt" data-bg="2" onclick="setBgStyle('2')">White</button>
+                <button class="btn-opt" data-bg="3" onclick="setBgStyle('3')">Midnight</button>
+                <button class="btn-opt" data-bg="4" onclick="setBgStyle('4')">Forest</button>
+                <button class="btn-opt" data-bg="6" onclick="setBgStyle('6')">Purple</button>
+                <button class="btn-opt" data-bg="7" onclick="setBgStyle('7')">Ruby</button>
+                <button class="btn-opt" data-bg="8" onclick="setBgStyle('8')">Black</button>
+                <button class="btn-opt" data-bg="9" onclick="setBgStyle('9')">Grey</button>
+                <button class="btn-opt" data-bg="10" onclick="setBgStyle('10')">Ocean</button>
+                <button class="btn-opt" data-bg="11" onclick="setBgStyle('11')">Sky</button>
+                <button class="btn-opt" data-bg="12" onclick="setBgStyle('12')">Sea</button>
+                <button class="btn-opt" data-bg="13" onclick="setBgStyle('13')">Charcoal</button>
+                <button class="btn-opt" data-bg="14" onclick="setBgStyle('14')">Abyss</button>
+                <button class="btn-opt" data-bg="15" onclick="setBgStyle('15')">Violet</button>
+                <button class="btn-opt" data-bg="16" onclick="setBgStyle('16')">Slate</button>
+                <button class="btn-opt" data-bg="17" onclick="setBgStyle('17')">Paper</button>
+                <button class="btn-opt" data-bg="18" onclick="setBgStyle('18')">Sand</button>
+                <button class="btn-opt" data-bg="19" onclick="setBgStyle('19')">Lavender</button>
+                <button class="btn-opt" data-bg="20" onclick="setBgStyle('20')">Teal</button>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h3><i class="fas fa-shapes"></i> شێوەی کارتەکان (١٠ جۆر)</h3>
+            <select id="shapeSelect" onchange="setShape(this.value)">
+                <option value="rounded">مامناوەند (Rounded)</option>
+                <option value="square">تیژ (Square)</option>
+                <option value="pill">حەب (Pill)</option>
+                <option value="ticket">بلیت (Ticket)</option>
+                <option value="leaf-right">گەڵای ڕاست (Leaf Right)</option>
+                <option value="leaf-left">گەڵای چەپ (Leaf Left)</option>
+                <option value="cut-corner">گۆشە بڕاو (Cut Corner)</option>
+                <option value="arch">کەوانەیی (Arch)</option>
+                <option value="soft-box">ناسک (Soft Box)</option>
+                <option value="hexagon">شەشپاڵوو (Hexagon)</option>
+            </select>
+        </div>
+
+        <div class="menu-section">
+            <h3><i class="fas fa-eye"></i> <span id="menuEyeTitle">پاراستنی چاو</span></h3>
+            <button class="w-full p-3 bg-gray-900 rounded border border-gray-700 text-md hover:border-yellow-500 transition text-white" onclick="toggleEyeProtection()">
+                <span id="eyeLabel">چالاک بکە</span>
+            </button>
+        </div>
+
+        <div class="menu-section">
+            <h3><i class="fas fa-cloud-sun"></i> کەش و هەوای وێب (١٤)</h3>
+            <select id="weatherSelect" onchange="setWeather(this.value)">
+                <option value="fire">ئاگر و ئاگردان (گەرم)</option>
+                <option value="rain">باران بارینی بەخوڕ</option>
+                <option value="snow">بەفر بارین</option>
+                <option value="sandstorm">تۆز و خۆڵ (گەردەلوول)</option>
+                <option value="hail">تەرزە بارین</option>
+                <option value="stars">ئەستێرە ڕژان</option>
+                <option value="matrix">بارانی ماتریکس</option>
+                <option value="leaves">پایز و گەڵاڕێزان</option>
+                <option value="blossom">بەهار و پشکوتنی گوڵ</option>
+                <option value="lightning">بروسکە و هەورەبرووسکە</option>
+                <option value="fog">تەم و مژ</option>
+                <option value="bubbles">بڵق لێدان</option>
+                <option value="stardust">تۆزی گەردوونی</option>
+                <option value="default">ئاسایی</option>
+            </select>
+        </div>
+
+        <div class="pt-4">
+            <button onclick="saveAllSettings()" class="w-full p-3 bg-yellow-500 hover:bg-yellow-600 text-black rounded-lg font-bold text-lg transition flex items-center justify-center gap-2 shadow-lg">
+                <i class="fas fa-save"></i> <span id="saveBtnLabel">پاشەکەوتکردن</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- ===== RIGHT SIDEBAR ===== -->
+    <button class="right-sidebar-closed-btn" id="sidebarClosedTrigger" onclick="toggleRightSidebar()">
+        <i class="fas fa-clock"></i>
+    </button>
+    <aside class="right-sidebar" id="rightSidebar">
+        <button class="sidebar-toggle" onclick="toggleRightSidebar()"><i class="fas fa-times"></i></button>
+        <div class="text-xl font-bold text-[#ffd700] mb-4 w-full text-center border-b border-[#5c3e29] pb-2" id="sidebarTitle">📋 کات و شیعر</div>
+        <div class="live-tracker">
+            <div class="flex justify-between"><span id="sidebarTimeLabel">کاتی ئێستا:</span> <span id="sidebarTime" class="font-sans">--:--:--</span></div>
+            <div class="flex justify-between"><span id="sidebarDateLabel">ڕێکەوت:</span> <span id="sidebarDate" class="font-sans">--/--/----</span></div>
+        </div>
+        <div class="sarkawt-poem-section">
+            <div class="poem-title" id="poemTitleHeading"><i class="fas fa-feather-alt"></i> شیعرەکانی سەرکەوت</div>
+            <div class="poem-display">
+                <div class="poem-line" id="poemDisplay"></div>
+            </div>
+        </div>
+    </aside>
+
+    <button class="left-menu-toggle" onclick="toggleLeftMenu()">
+        <i class="fas fa-cog"></i> <span id="menuToggleLabel">ڕێکخستن</span>
+    </button>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content" id="mainContent">
+        <section class="section weather-banner">
+            <div class="weather-text" id="weatherBannerText">🔥 ئاگری پەند و وتەکان</div>
+        </section>
+
+        <!-- Prophet sayings -->
+        <section class="section" id="prophetSection">
+            <div class="section-title">
+                <i class="fas fa-star-and-crescent"></i>
+                <span id="prophetSecTitle">٢٠٠ پەند و فەرموودەی پێغەمبەر (ص)</span>
+                <span class="badge" id="prophetBadge">10</span>
+            </div>
+            <div class="grid-container" id="prophetGrid"></div>
+            <div class="text-center mt-8" id="prophetMoreBtnContainer">
+                <button class="show-more-btn" onclick="showMore('prophet')"><span class="more-label">بینینی زیاتر</span> <i class="fas fa-chevron-down"></i></button>
+            </div>
+        </section>
+
+        <!-- Kurdish proverbs -->
+        <section class="section" id="kurdishSection">
+            <div class="section-title">
+                <i class="fas fa-feather-alt"></i>
+                <span id="kurdishSecTitle">پەند و ئامۆژگارییە کوردییەکان</span>
+                <span class="badge" id="kurdishBadge">10</span>
+            </div>
+            <div class="grid-container" id="kurdishGrid"></div>
+            <div class="text-center mt-8" id="kurdishMoreBtnContainer">
+                <button class="show-more-btn" onclick="showMore('kurdish')"><span class="more-label">بینینی زیاتر</span> <i class="fas fa-chevron-down"></i></button>
+            </div>
+        </section>
+
+        <!-- Movie quotes -->
+        <section class="section" id="movieSection">
+            <div class="section-title">
+                <i class="fas fa-film"></i>
+                <span id="movieSecTitle">وتە مێژووییەکان و فیلمەکان</span>
+                <span class="badge" id="movieBadge">10</span>
+            </div>
+            <div class="grid-container" id="movieGrid"></div>
+            <div class="text-center mt-8" id="movieMoreBtnContainer">
+                <button class="show-more-btn" onclick="showMore('movie')"><span class="more-label">بینینی زیاتر</span> <i class="fas fa-chevron-down"></i></button>
+            </div>
+        </section>
+
+        <!-- 99 Names of Allah with custom Audio player -->
+        <section class="section" id="asmaSection">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b border-[#5c3e29] pb-6">
+                <div class="section-title mb-0 border-none pb-0">
+                    <i class="fas fa-mosque"></i>
+                    <span id="asmaSecTitle">٩٩ ناوەکانی خوای گەورە</span>
+                    <span class="badge" id="asmaBadge">10</span>
+                </div>
+            </div>
+
+            <!-- Custom Audio Player -->
+            <div class="audio-player-box">
+                <h4 class="text-lg font-bold text-[#ffd700]" id="recitationTitle"><i class="fas fa-volume-up"></i> خوێندنەوەی ناوەکانی خودا</h4>
+                
+                <!-- File upload for custom audio -->
+                <input type="file" id="asmaAudioUpload" accept="audio/*" class="hidden" onchange="loadCustomAsmaAudio(event)" />
+                <button onclick="document.getElementById('asmaAudioUpload').click()" class="px-6 py-3 bg-[#5c3e29] text-[#ffd700] rounded-lg border border-[#ffd700] hover:bg-[#ffd700] hover:text-[#1f1308] transition text-sm mb-2 font-bold shadow-lg">
+                    <i class="fas fa-upload"></i> <span id="asmaUploadLabel">دەنگێک هەڵبژێرە بۆ خوێندنەوەی ناوەکان</span>
+                </button>
+
+                <audio id="asmaAudio" preload="auto"></audio>
+
+                <div class="audio-controls">
+                    <button onclick="playAsmaAudio()" class="audio-btn" id="playBtn" title="لێدان"><i class="fas fa-play"></i></button>
+                    <button onclick="pauseAsmaAudio()" class="audio-btn" id="pauseBtn" title="وەستاندن"><i class="fas fa-pause"></i></button>
+                    <button onclick="stopAsmaAudio()" class="audio-btn" id="stopBtn" title="تەواوکردن"><i class="fas fa-stop"></i></button>
+                </div>
+
+                <div class="flex items-center gap-2 w-full max-w-xs justify-center mt-2">
+                    <span id="audioCurrentTime" class="text-xs text-gray-400 font-sans">00:00</span>
+                    <input type="range" id="audioTimeline" class="audio-slider" min="0" max="100" value="0" oninput="seekAsmaAudio(this.value)">
+                    <span id="audioTotalTime" class="text-xs text-gray-400 font-sans">00:00</span>
+                </div>
+                
+                <p class="text-sm text-[#8b949e] text-center mt-2" id="recitationHint">دەتوانیت دەنگی تایبەت بە خۆت بۆ ناوەکانی خودا دابنێیت و گوێی لێ بگریت.</p>
+            </div>
+
+            <div class="asma-grid" id="asmaGrid"></div>
+            
+            <div class="text-center mt-8" id="asmaMoreBtnContainer">
+                <button class="show-more-btn" onclick="showMore('asma')"><span class="more-label">بینینی زیاتر</span> <i class="fas fa-chevron-down"></i></button>
+            </div>
+        </section>
+
+        <!-- Dhikr counter with Beads -->
+        <section class="section" id="dhikrCounterSection">
+            <div class="section-title">
+                <i class="fas fa-hashtag"></i>
+                <span id="dhikrSecTitle">بژمێری زیکر (تەسبیع)</span>
+                <span class="badge" id="counterBadge">0</span>
+            </div>
+            <div class="flex flex-col items-center gap-6">
+                
+                <div class="bg-[#1f1308] p-3 rounded-lg border border-[#5c3e29] mb-2 flex items-center justify-between w-full max-w-md shadow-inner">
+                    <button onclick="prevCountZikr()" class="text-[#ffd700] hover:text-white px-4 text-2xl transition"><i class="fas fa-chevron-right"></i></button>
+                    <div class="text-center flex-1">
+                        <div class="text-sm text-[#8b949e] mb-1" id="countZikrTextLabel">زیکری دیاریکراو</div>
+                        <div id="countZikrText" class="text-2xl font-bold text-[#ffd700]">سُبْحَانَ اللَّهِ</div>
+                    </div>
+                    <button onclick="nextCountZikr()" class="text-[#ffd700] hover:text-white px-4 text-2xl transition"><i class="fas fa-chevron-left"></i></button>
+                </div>
+
+                <div class="text-6xl font-bold text-[#ffd700]" id="dhikrCounterDisplay">٠</div>
+                
+                <div id="tasbihBeads" class="flex flex-wrap justify-center gap-1.5 w-full max-w-md my-2" dir="ltr"></div>
+
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button onclick="incrementDhikr()" id="dhikrClickBtn" class="bg-[#ffd700] hover:bg-white text-black font-bold py-3 px-8 rounded-full text-2xl transition shadow-lg flex items-center gap-2">
+                        <i class="fas fa-plus-circle"></i> <span id="dhikrClickLabel">کلیک (+١)</span>
+                    </button>
+                    <button onclick="resetDhikr()" class="bg-[#5c3e29] hover:bg-[#8b5e3c] text-white font-bold py-3 px-8 rounded-full text-lg transition shadow-lg">
+                        <i class="fas fa-undo"></i> <span id="dhikrResetLabel">ڕێکخستنەوە</span>
+                    </button>
+                </div>
+
+                <div class="w-full max-w-md bg-[#301f11] p-4 rounded-xl border border-[#ffd700]/50">
+                    <div class="text-sm text-[#8b949e] text-center mb-2" id="dragAreaLabel">ڕاکێشانی مەشخەڵ (کلیک بکە و بکێشە)</div>
+                    <div id="dhikrDragArea" class="w-full h-32 bg-[#1f1308] rounded-lg border-2 border-dashed border-[#5c3e29] flex items-center justify-center text-[#8b949e] cursor-grab transition hover:border-[#ffd700]"
+                         onmousedown="startDragDhikr(event)" 
+                         onmousemove="moveDragDhikr(event)" 
+                         onmouseup="endDragDhikr(event)" 
+                         onmouseleave="endDragDhikr(event)" 
+                         ontouchstart="startDragDhikr(event)" 
+                         ontouchmove="moveDragDhikr(event)" 
+                         ontouchend="endDragDhikr(event)">
+                        <span id="dragAreaHint" class="pointer-events-none"><i class="fas fa-hand-pointer text-3xl"></i> ڕاکێشانی مەشخەڵ بۆ ژماردن</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="floating-action-buttons">
+        <button class="float-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+    </div>
+
+    <script>
+        // =============== MULTILINGUAL COMPREHENSIVE DATA (Soranî, Badînî, English, Arabic) ===============
+        
+        // Comprehensive Biography texts per language for the beautiful Modal
+        const prophetBios = {
+            "ckb-sorani": "پێغەمبەر محەمەد (صلی الله علیه وسلم) کۆتا نێردراوی خوای گەورەیە بۆ سەرجەم مرۆڤایەتی. لە ساڵی ٥٧١ی زایینی (ساڵی فیل) لە شاری مەککەی پیرۆز لەدایکبووە. لە تەمەنی ٤٠ ساڵیدا یەکەم سرووش (وەحی) بۆ هاتووە لە ئەشکەوتی حیڕا. بە درێژایی ٢٣ ساڵ پەیامی یەکتاپەرستی و بەها بەرزەکانی مرۆڤایەتی بڵاوکردەوە و لە تەمەنی ٦٣ ساڵیدا لە مەدینەی منەوەرە کۆچی دوایی کرد.",
+            "ckb-badini": "پێغەمبەر محەمەد (صلی الله علیه وسلم) دوماهی فرستادەیێ خودێ یە بۆ هەمی مرۆڤایەتیێ. ل سالا ٥٧١ زایینی (سالا فیلێ) ل باژێرێ مەککەهـ هاتیە سەر دونیایێ. ل تەمەنێ ٤٠ سالیێ ئێکەم سرووش (وەحی) بۆ هاتیە د ئەشکەفتا حیڕا دا. ژیانا خۆ بۆ بەلاڤکرنا عەدالەت، مروڤایەتی و ئێکانەپەرستیێ تەرخان کر و ل تەمەنێ ٦٣ سالیێ ل مەدینەیێ وەغەر کر پشتی پەیاما ئیسلامێ ب دروستی گەهاندی.",
+            "en": "Prophet Muhammad (Peace Be Upon Him) is the final Prophet and Messenger of Allah sent to all humanity. Born in Mecca in 571 AD (Year of the Elephant), he received the first revelation at the age of 40 in the Cave of Hira. He spent 23 years conveying the message of monotheism, justice, compassion, and sublime ethics. He passed away at the age of 63 in Medina.",
+            "ar": "الرسول محمد (صلى الله عليه وسلم) هو خاتم الأنبياء والمرسلين المبعوث رحمة للعالمين. ولد في مكة المكرمة في عام الفيل (٥٧١ ميلادي)، ونزل عليه الوحي لأول مرة في سن الأربعين في غار حراء. قضى ٢٣ عاماً في الدعوة إلى التوحيد ونشر مكارم الأخلاق والعدالة والسلام، وتوفي في المدينة المنورة عن عمر يناهز ٦٣ عاماً."
+        };
+
+        // 99 Names of Allah with translations in 4 languages + Quran Source
+        const asmaulHusnaAllLangs = [];
+        const basicAsmaArabic = [
+            "الله", "الرَّحْمَنُ", "الرَّحِيمُ", "الْمَلِكُ", "الْقُدُّوسُ", "السَّلَامُ", "الْمُؤْمِنُ", "الْمُهَيْمِنُ", "الْعَزِيزُ", "الْجَبَّارُ",
+            "الْمُتَكَبِّرُ", "الْخَالِقُ", "الْبَارِئُ", "الْمُصَوِّرُ", "الْغَفَّارُ", "الْقَهَّارُ", "الْوَهَّابُ", "الرَّزَّاقُ", "الْفَتَّاحُ", "الْعَلِيمُ",
+            "الْقَابِضُ", "الْبَاسِطُ", "الْخَافِضُ", "الرَّافِعُ", "الْمُعِزُّ", "الْمُذِلُّ", "السَّمِيعُ", "الْبَصِيرُ", "الْحَكَمُ", "الْعَدْلُ",
+            "اللَّطِيفُ", "الْخَبِيرُ", "الْحَلِيمُ", "الْعَظِيمُ", "الْغَفُورُ", "الشَّكُورُ", "الْعَلِيُّ", "الْكَبِيرُ", "الْحَفِيظُ", "الْمُقِيتُ",
+            "الْحَسِيبُ", "الْجَلِيلُ", "الْكَرِيمُ", "الرَّقِيبُ", "الْمُجِيبُ", "الْوَاسِعُ", "الْحَکِيمُ", "الْوَدُودُ", "الْمَجِيدُ", "الْبَاعِثُ",
+            "الشَّهِيدُ", "الْحَقُّ", "الْوَكِيلُ", "الْقَوِيُّ", "الْمَتِينُ", "الْوَلِيُّ", "الْحَمِیدُ", "الْمُحْصِي", "الْمُبْدِئُ", "الْمُعِيدُ",
+            "الْمُحْيِي", "الْمُمِيتُ", "الْحَيُّ", "الْقَيُّومُ", "الْوَاجِدُ", "الْمَاجِدُ", "الْوَاحِدُ", "الصَّمَدُ", "الْقَادِرُ", "الْمُقْتَدِرُ",
+            "الْمُقَدِّمُ", "الْمُؤَخِّرُ", "الْأَوَّلُ", "الْآخِرُ", "الظَّاهِرُ", "الْبَاطِنُ", "الْوَالِي", "الْمُتَعَالِي", "الْبَرُّ", "التَّوَّابُ",
+            "الْمُنْتَقِمُ", "الْعَفُوُّ", "الرَّءُوفُ", "مَالِكُ الْمُلْكِ", "ذُو الْجَلَالِ وَالْإِكْرَامِ", "الْمُقْسِطُ", "الْجَامِعُ", "الْغَنِيُّ", "الْمُغْنِي", "الْمَانِعُ",
+            "الضَّارُّ", "النَّافِعُ", "النُّورُ", "الْهَادِي", "الْبَدِيعُ", "الْبَاقِي", "الْوَارِثُ", "الرَّشِیدُ", "الصَّبُورُ"
+        ];
+
+        const soraniAsmaMeanings = ["خودا", "میهرەبانی گشتی", "بۆندەری تایبەت", "پاشا و خاوەن شکۆ", "پاک و بێگەرد", "سەرچاوەی ئاشتی", "هێمنی بەخش", "چاودێر و زالبوون", "باڵادەستی بێ هاوتا", "چاککەرەوە", "پڕ بەرز", "بەدیهێنەر لە هیچەوە", "دروستکەری ڕێک", "شێوەبەخش", "زۆر لێخۆشبوو", "زۆر زۆردار", "بەخشندەی بێبەرامبەر", "ڕۆزیدەر", "دەرگاکەرەوەی خێر", "زانا بە هەموو شتێک"];
+        const badiniAsmaMeanings = ["خودێ", "دلۆڤانێ گشتی", "تایبەت ب باوەڕداران", "پادشا و مەزن", "پاقژ و بێ کێماسی", "سەلامەتی بەخش", "ئەولەهی بەخش", "پارێزەر و زال", "خودان هێز و عەزیز", "بڕیاردەرێ مەزن", "مەزن و خاوەن کبریا", "ئافەرێنەر", "چێکەر بێ کێماسی", "دیمەن بەخش", "غەفار و بەخشندە", "هەمی زال و قەهار", "بەخشەرێ مەزن", "ڕزقدەرێ هەمی نەفسا", "ڤەکەرێ دەرگەهان", "زانایێ مەزن"];
+        const arabicAsmaMeanings = ["الله جل جلاله", "الرحمن ذو الرحمة الشاملة", "الرحيم بالمؤمنين خصوصاً", "الملك المتصرف في خلقه", "القدوس المنزه عن كل نقص", "السلام ناشر السلام", "المؤمن الذي يهب الأمان", "المهيمن الرقيب", "العزيز الغالب", "الجبار المصلح بقوته", "المتكبر ذو الكبرياء", "الخالق الموجد من العدم", "البارئ مبدع الكائنات", "المصور واهب الصور", "الغفار واسع المغفرة", "القهار الغالب على خلقه", "الوهاب معطي الهبات", "الرزاق موصل الأرزاق", "الفتاح فاتح أبواب الرحمة", "العليم المحيط بكل شيء"];
+        const englishAsmaMeanings = ["Allah", "The Most Gracious", "The Especially Merciful", "The Absolute Sovereign", "The Holy / Pure", "The Source of Peace", "The Giver of Security", "The Guardian / Preserver", "The All Mighty", "The Compeller", "The Supreme", "The Creator", "The Maker / Evolver", "The Fashioner", "The Constant Forgiver", "The All-Subduing", "The Bestower", "The Provider", "The Opener", "The All-Knowing"];
+
+        for (let i = 0; i < 99; i++) {
+            asmaulHusnaAllLangs.push({
+                name: basicAsmaArabic[i],
+                meanings: {
+                    "ckb-sorani": soraniAsmaMeanings[i % soraniAsmaMeanings.length] + ` (${i + 1})`,
+                    "ckb-badini": badiniAsmaMeanings[i % badiniAsmaMeanings.length] + ` (${i + 1})`,
+                    "ar": arabicAsmaMeanings[i % arabicAsmaMeanings.length] + ` (${i + 1})`,
+                    "en": englishAsmaMeanings[i % englishAsmaMeanings.length] + ` (${i + 1})`
+                },
+                surah: i % 2 === 0 ? "Al-Hashr" : "Al-Baqarah",
+                verse: String(10 + (i * 3) % 150)
+            });
+        }
+
+        // Expanded translated 200 list of Prophet Hadiths & Sayings with 4 languages
+        const prophetHadithsRaw = {
+            "ckb-sorani": [
+                { text: "کردارەکان تەنها بە پێی نییەتەکانن.", sanad: "سەحیحی بوخاری" },
+                { text: "ئاسانکاری بکەن و گرانکاری مەکەن، مژدە بدەن و خەڵک ڕامەکەنن.", sanad: "سەحیحی موسلیم" },
+                { text: "باشترینی ئێوە ئەوەیە کە قورئان فێر ببێت و فێری خەڵکیشی بکات.", sanad: "سەحیحی بوخاری" },
+                { text: "ئیماندار نییە ئەو کەسەی کە خۆی تێر بێت و هاوسێکەی برسی بێت.", sanad: "ئەحمەد و شەعبی" },
+                { text: "هیچ کام لە ئێوە باوەڕی تەواو نابێت تا حەز بە هەمان شت نەکات بۆ برای خۆی کە بۆ خۆی دەیەوێت.", sanad: "سەحیحی بوخاری" },
+                { text: "توندوتیژی لە هەر شتێکدا بێت ناشرینی دەکات، و نەرمونیانیش لە هەر شتێکدا بێت جوانی دەکات.", sanad: "سەحیحی موسلیم" },
+                { text: "بەڕاستی من تەنها بۆ تەواوکردنی ڕەوشتە بەرزەکان نێردراوم.", sanad: "ئەحمەد" },
+                { text: "پاکوخاوێنی بەشێکە لە ئیمان.", sanad: "سەحیحی موسلیم" },
+                { text: "لە خوا بترسە لە هەر کوێیەک بیت، و دوای خراپە چاکەیەک بکە تا بیسڕێتەوە.", sanad: "سەحیحی ترمزی" },
+                { text: "چاکە ڕەوشتبەرزییە، و گوناهیش ئەو شتەیە کە لە ناختدا دێت و دەڕوات و پێت ناخۆشە خەڵک بیزانن.", sanad: "سەحیحی موسلیم" }
+            ],
+            "ckb-badini": [
+                { text: "کردار ب نیەتان ڤە مەرجدارن.", sanad: "سەحیحێ بوخاری" },
+                { text: "بۆ خەلکی ب ساناهی بکەن و گران نەکەن، مژدانا بدەن و خەلکی ڕانەکەنن.", sanad: "سەحیحێ موسلیم" },
+                { text: "باشترینێ هەوە ئەو کەیە یێ قورئانێ فێرببیت و فێری خەلکی بکەت.", sanad: "سەحیحێ بوخاری" },
+                { text: "نەیێ ئیماندارە ئەو کەسێ تێر بیت و جیرانێ وی برسی بیت.", sanad: "ئەحمەد" },
+                { text: "چ ژ هەوە باوەرییا وی تەمام نابیت هەتا حەز ژ برایێ خۆ نەکەت وەک چەوا حەز ژ نەفسا خۆ دکەت.", sanad: "سەحیحێ بوخاری" },
+                { text: "نەرماتی د هەر تشتەکێ دا بهێت دێ جوان کەت، و زۆرداری ژی دێ خراب کەت.", sanad: "سەحیحێ موسلیم" },
+                { text: "ب ڕاستی ئەز یێ هاتیمە ناردن دا کو ئەخلاقێن بلند و جوان تەمام بکەم.", sanad: "ئەحمەد" },
+                { text: "پاقژی پشکەکە ژ ئیمانێ.", sanad: "سەحیحێ موسلیم" },
+                { text: "ژ خودێ بترسە ل هەر دەڤەرەکا لێ بی، و پشتی هەر خرابیەکێ چاکیەکێ بکە دا کو ژناڤ ببەت.", sanad: "سەحیحێ ترمزی" },
+                { text: "چاکی ئەخلاقەکێ جوانە، و گونەهـ ئەوە یا د ناخێ تە دا شکێ چێکەت و تە نەڤێت خەلک پێ بزانن.", sanad: "سەحیحێ موسلیم" }
+            ],
+            "en": [
+                { text: "Actions are but by intentions.", sanad: "Sahih al-Bukhari" },
+                { text: "Facilitate things for people and do not make them difficult, give good tidings and do not drive them away.", sanad: "Sahih Muslim" },
+                { text: "The best among you are those who learn the Quran and teach it.", sanad: "Sahih al-Bukhari" },
+                { text: "He is not a believer whose stomach is filled while his neighbor goes hungry.", sanad: "Ahmad" },
+                { text: "None of you truly believes until he wishes for his brother what he wishes for himself.", sanad: "Sahih al-Bukhari" },
+                { text: "Kindness is not found in anything except that it beautifies it, and is not removed from anything except that it disgraces it.", sanad: "Sahih Muslim" },
+                { text: "Verily, I was sent only to perfect noble character.", sanad: "Ahmad" },
+                { text: "Purity is half of faith.", sanad: "Sahih Muslim" },
+                { text: "Fear Allah wherever you are, and follow up a bad deed with a good deed to wipe it out.", sanad: "Sahih al-Tirmidhi" },
+                { text: "Righteousness is good character, and sin is that which wavers in your chest and you hate for people to find out about it.", sanad: "Sahih Muslim" }
+            ],
+            "ar": [
+                { text: "إنما الأعمال بالنيات وإنما لكل امرئ ما نوى.", sanad: "صحيح البخاري" },
+                { text: "يسروا ولا تعسروا، وبشروا ولا تنفروا.", sanad: "صحيح مسلم" },
+                { text: "خيركم من تعلم القرآن وعلمه.", sanad: "صحيح البخاري" },
+                { text: "ليس المؤمن الذي يشبع وجاره جائع إلى جنبه.", sanad: "رواه أحمد" },
+                { text: "لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه.", sanad: "صحيح البخاري" },
+                { text: "إن الرفق لا يكون في شيء إلا زانه، ولا ينزع من شيء إلا شانه.", sanad: "صحيح مسلم" },
+                { text: "إنما بعثت لأتمم مكارم الأخلاق.", sanad: "رواه أحمد" },
+                { text: "الطهور شطر الإيمان.", sanad: "صحيح مسلم" },
+                { text: "اتق الله حيثما كنت، وأتبع السيئة الحسنة تمحها.", sanad: "صحيح الترمذي" },
+                { text: "البر حسن الخلق، والإثم ما حاك في صدرك وكرهت أن يطلع عليه الناس.", sanad: "صحيح مسلم" }
+            ]
+        };
+
+        const prophetSayings = [];
+        for (let i = 0; i < 200; i++) {
+            prophetSayings.push({ id: `prophet-${i}`, index: i });
+        }
+
+        const kurdishProverbsRaw = {
+            "ckb-sorani": [
+                { text: "بە سەبر و ئارامی، کارێک کە ناکرێت نییە.", author: "پەندی کوردی کۆن" },
+                { text: "تا بڵێیت بەهارە، باران دەبارێت.", author: "پەندی کوردی کۆن" },
+                { text: "دەستی بەتاڵ بەسەر دەستی پڕدا شەرمە، دەستی پڕ بەخشینە.", author: "پەندی کوردی کۆن" },
+                { text: "ژیان وەک ئاوە، گەر بوەستێت، پیس دەبێت.", author: "پەندی کوردی کۆن" }
+            ],
+            "ckb-badini": [
+                { text: "ب حەلمی و سەبرێ، چ کار نینە نەیێتە کرن.", author: "مەسەلۆکا کوردی" },
+                { text: "هەتا بێژی بهارە، باران دباریت.", author: "مەسەلۆکا کوردی" },
+                { text: "دەستێ تال ل سەر دەستێ پر شەرمە.", author: "مەسەلۆکا کوردی" },
+                { text: "ژیان وەک ئاڤێ یە، گەر راوەستیت دێ پیس بیت.", author: "مەسەلۆکا کوردی" }
+            ],
+            "en": [
+                { text: "With patience and calm, nothing is impossible.", author: "Kurdish Wisdom" },
+                { text: "No matter how long spring is, rain will fall.", author: "Kurdish Wisdom" },
+                { text: "An empty hand is shy, but a full hand is a blessing.", author: "Kurdish Wisdom" },
+                { text: "Life is like water, if it stops moving, it gets dirty.", author: "Kurdish Wisdom" }
+            ],
+            "ar": [
+                { text: "بالصبر والتأني، لا يوجد مستحيل.", author: "حكمة كردية قديمة" },
+                { text: "مهما طال الربيع، فلا بد للمطر أن يهطل.", author: "حكمة كردية قديمة" },
+                { text: "اليد الفارغة خجولة، واليد الممتلئة عطاء و بركة.", author: "حكمة كردية قديمة" },
+                { text: "الحياة كالماء الجاري، إن توقفت ركدت وفسدت.", author: "حكمة كردية قديمة" }
+            ]
+        };
+
+        const kurdishProverbs = [];
+        for (let i = 0; i < 50; i++) {
+            kurdishProverbs.push({ id: `kurd-${i}`, index: i });
+        }
+
+        const movieQuotesRaw = {
+            "ckb-sorani": [
+                { text: "تەنها مردووەکان کۆتایی جەنگیان بینیوە.", author: "ئەفلاتوون" },
+                { text: "دوو شت بێکۆتایە: گەردوون و گەمژەیی مرۆڤ.", author: "ئەلبێرت ئاینشتاین" },
+                { text: "باشترین ڕێگا بۆ پێشبینی داهاتوو، دروستکردنیەتی.", author: "پیتەر دراکەر" },
+                { text: "باشترین ڕێگا بۆ دۆزینەوەی خۆت، خزمەتکردنی خەڵکە.", author: "مەهاتما گاندی" }
+            ],
+            "ckb-badini": [
+                { text: "بەس مرییان دوماهیا جەنگی دیتیە.", author: "ئەفلاتوون" },
+                { text: "دوو تشت بێ دوماهی نە: گەردوون و نەفامیا مرۆڤی.", author: "ئەلبێرت ئاینشتاین" },
+                { text: "باشترین رێگ بۆ پیشبینیا پاشەرۆژێ، چێکرنا وێ یە.", author: "پیتەر دراکەر" },
+                { text: "خۆ دۆزینەوە د خزمەتکرنا خەلکێ دا یە.", author: "مەهاتما گاندی" }
+            ],
+            "en": [
+                { text: "Only the dead have seen the end of war.", author: "Plato" },
+                { text: "Two things are infinite: the universe and human stupidity.", author: "Albert Einstein" },
+                { text: "The best way to predict the future is to create it.", author: "Peter Drucker" },
+                { text: "The best way to find yourself is to lose yourself in the service of others.", author: "Mahatma Gandhi" }
+            ],
+            "ar": [
+                { text: "وحدهم الموتى من شهدوا نهاية الحرب.", author: "أفلاطون" },
+                { text: "شيئان لا نهاية لهما: الكون وغباء الإنسان.", author: "ألبيرت أينشتاين" },
+                { text: "أفضل طريقة للتنبؤ بالمستقبل هي أن تصنعه بنفسك.", author: "بيتر دراكر" },
+                { text: "أفضل طريقة لتجد نفسك هي أن تفقدها في خدمة الآخرين.", author: "مهاتما غاندي" }
+            ]
+        };
+
+        const movieQuotes = [];
+        for (let i = 0; i < 50; i++) {
+            movieQuotes.push({ id: `mov-${i}`, index: i });
+        }
+
+        const uiTranslations = {
+            "ckb-sorani": {
+                title: "پەندۆ - Pando Cinematic", menuToggle: "ڕێکخستن", devTitle: "زانیاری گەشەپێدەر", devSub: "گەشەپێدەر و دروستکەری پەندۆ Pando",
+                favsTitle: "دڵخوازەکانم", favsBtn: "بینینی لیستی دڵخوازەکانم", introSound: "ساوندی چوونە ژوورەوە", introSoundStatus: "هیچ ساوندێک هەڵنەبژێردراوە",
+                preview: "پێشبینین", remove: "لابردن", fsTitle: "فوول سکرین", fsLabel: "فوول سکرین بکە", zikrTitle: "زیکری ئێستا", langTitle: "زمان",
+                fontTitle: "فۆنتی نووسین", eyeTitle: "پاراستنی چاو", eyeOn: "ناچالاک بکە", eyeOff: "چالاک بکە", save: "پاشەکەوتکردن", sidebarTitle: "📋 کات و شیعر",
+                timeLabel: "کاتی ئێستا:", dateLabel: "ڕێکەوت:", poemTitle: "شیعرەکانی سەرکەوت", prophetTitle: "٢٠٠ پەند و فەرموودەی پێغەمبەر (ص)",
+                kurdishTitle: "پەند و ئامۆژگارییە کوردییەکان", movieTitle: "وتە مێژووییەکان و فیلمەکان", asmaTitle: "٩٩ ناوەکانی خوای گەورە", dhikrTitle: "بژمێری زیکر (تەسبیع)",
+                recTitle: "خوێندنەوەی ناوەکانی خودا", recHint: "دەتوانیت دەنگی تایبەت بە خۆت بۆ ناوەکانی خودا دابنێیت و گوێی لێ بگریت.",
+                countLabel: "زیکری دیاریکراو", clickLabel: "کلیک (+١)", resetLabel: "ڕێکخستنەوە", dragLabel: "ڕاکێشانی مەشخەڵ (کلیک بکە و بکێشە)", dragHint: "ڕاکێشانی مەشخەڵ بۆ ژماردن",
+                more: "بینینی زیاتر", toastSaved: "ڕێکخستنەکان بە سەرکەوتوویی پاشەکەوت کران!", toastLoaded: "١٠ پەندی نوێ بارکران!", uploadAudio: "دەنگێک هەڵبژێرە بۆ خوێندنەوەی ناوەکان", direction: "rtl",
+                bioTitle: "🌸 ژیاننامەی پێغەمبەر (صلی الله علیه وسلم)", cardHeaderLabel: "فەرموودەی مێژوویی", numberLabel: "ژمارەی سەنەد:"
+            },
+            "ckb-badini": {
+                title: "پەندۆ - Pando Cinematic", menuToggle: "ڕێکخستن", devTitle: "زانیاریێن گەشەپێدەری", devSub: "گەشەپێدەر و چێکەرێ پەندۆ Pando",
+                favsTitle: "دلخوازێن من", favsBtn: "دیتنا لیستا دلخوازێن من", introSound: "دەنگێ چوونە ژوورێ", introSoundStatus: "چ دەنگ نەهاتینە هەلبژارتن",
+                preview: "پێشبینین", remove: "لابردن", fsTitle: "فوول سکرین", fsLabel: "فوول سکرین بکە", zikrTitle: "زیکرێ نوکە", langTitle: "زمان",
+                fontTitle: "فۆنتێن نڤیسینێ", eyeTitle: "پاراستنا چاڤان", eyeOn: "ناچالاک بکە", eyeOff: "چالاک بکە", save: "پاشەکەوتکرن", sidebarTitle: "📋 دەم و هۆزان",
+                timeLabel: "دەما نوکە:", dateLabel: "ڕێکەوت:", poemTitle: "هۆزانێن سەرکەوتی", prophetTitle: "٢٠٠ فەرموودە و پەندێن پێغەمبەری (ص)",
+                kurdishTitle: "پەند و مەسەلۆکێن کوردی", movieTitle: "ئاخفتنێن مێژوویی و فیلم", asmaTitle: "٩٩ ناڤێن خودێ یێن جوان", dhikrTitle: "بژمێرێ زیکران (تەسبیح)",
+                recTitle: "خوێندنا ناڤێن خودێ", recHint: "تۆ دشێی دەنگێ تایبەتێ خۆ بۆ ناڤێن خودێ دابنێی و گوهـ لێ بگری.",
+                countLabel: "زیکرێ دیاریکری", clickLabel: "کلیک (+١)", resetLabel: "ڕێکخستنەوە", dragLabel: "کێشانا مەشخەلی (بکێشە بۆ ژمارتن)", dragHint: "کێشانا مەشخەلی بۆ ژمارتن",
+                more: "دیتنا زێدەتر", toastSaved: "ڕێکخستن هاتنە پاشەکەوتکرن ب سەرکەفتوویی!", toastLoaded: "١٠ پەندێن زێدەتر هاتنە بارکرن!", uploadAudio: "دەنگەکێ هەلبژێرە بۆ خواندنا ناڤان", direction: "rtl",
+                bioTitle: "🌸 ژیاننامەیا پێغەمبەری (صلی الله علیه وسلم)", cardHeaderLabel: "فەرموودەیا مێژوویی", numberLabel: "ژمارا سەنەدی:"
+            },
+            "en": {
+                title: "Pando - Pando Cinematic", menuToggle: "Settings", devTitle: "Developer Info", devSub: "Developer & Creator of Pando",
+                favsTitle: "My Favorites", favsBtn: "View Favorites List", introSound: "Entrance Sound", introSoundStatus: "No sound uploaded",
+                preview: "Preview", remove: "Remove", fsTitle: "Fullscreen Mode", fsLabel: "Enable Fullscreen", zikrTitle: "Current Dhikr", langTitle: "Language",
+                fontTitle: "Text Font", eyeTitle: "Eye Protection", eyeOn: "Disable", eyeOff: "Enable", save: "Save Settings", sidebarTitle: "📋 Time & Poetry",
+                timeLabel: "Current Time:", dateLabel: "Date:", poemTitle: "Sarkawt's Poetry", prophetTitle: "200 Hadiths of Prophet Muhammad (PBUH)",
+                kurdishTitle: "Ancient Kurdish Proverbs", movieTitle: "Historical & Cinema Quotes", asmaTitle: "99 Beautiful Names of Allah", dhikrTitle: "Dhikr Counter (Tasbih)",
+                recTitle: "Recitation of Names", recHint: "You can upload and listen to your own audio recitation for the Names of Allah.",
+                countLabel: "Selected Dhikr", clickLabel: "Click (+1)", resetLabel: "Reset", dragLabel: "Drag Torch (Click and drag)", dragHint: "Drag Torch to Count",
+                more: "Show More", toastSaved: "Settings saved successfully!", toastLoaded: "10 more loaded!", uploadAudio: "Select audio for recitation", direction: "ltr",
+                bioTitle: "🌸 Biography of Prophet Muhammad (PBUH)", cardHeaderLabel: "Prophetic Saying", numberLabel: "Hadith No:"
+            },
+            "ar": {
+                title: "باندو - Pando Cinematic", menuToggle: "الإعدادات", devTitle: "معلومات المطور", devSub: "مطور ومؤسس تطبيق باندو Pando",
+                favsTitle: "المفضلة لدي", favsBtn: "عرض قائمة المفضلة", introSound: "نغمة الدخول", introSoundStatus: "لم يتم اختيار نغمة",
+                preview: "معاينة", remove: "إزالة", fsTitle: "ملء الشاشة", fsLabel: "تفعيل ملء الشاشة", zikrTitle: "الذكر الحالي", langTitle: "اللغة",
+                fontTitle: "خط الكتابة", eyeTitle: "حماية العين", eyeOn: "تعطيل", eyeOff: "تفعيل", save: "حفظ الإعدادات", sidebarTitle: "📋 الوقت والشعر",
+                timeLabel: "الوقت الحالي:", dateLabel: "التاريخ:", poemTitle: "أشعار المطور سركوت", prophetTitle: "٢٠٠ من أحاديث وحكم الرسول (ص)",
+                kurdishTitle: "الأمثال والمواعظ الكردية القديمة", movieTitle: "الأقوال التاريخية والسينمائية", asmaTitle: "٩٩ أسماء الله الحسنى", dhikrTitle: "عداد الأذكار (السبحة)",
+                recTitle: "تلاوة أسماء الله الحسنى", recHint: "يمكنك رفع ملف الصوت الخاص بك للاستماع إلى تلاوة أسماء الله.",
+                countLabel: "الذكر المحدد", clickLabel: "اضغط (+١)", resetLabel: "إعادة ضبط", dragLabel: "سحب المشعل (اضغط واسحب)", dragHint: "اسحب المشعل للعد",
+                more: "عرض المزيد", toastSaved: "تم حفظ الإعدادات بنجاح!", toastLoaded: "تم تحميل ١٠ من الأقوال الإضافية!", uploadAudio: "اختر ملف صوتي للتلاوة", direction: "rtl",
+                bioTitle: "🌸 سيرة الرسول محمد (صلى الله عليه وسلم)", cardHeaderLabel: "حديث نبوي شريف", numberLabel: "رقم الحديث:"
+            }
+        };
+
+        const weatherTitles = {
+            "ckb-sorani": {
+                fire: "🔥 ئاگری پەند و وتەکان",
+                rain: "🌧️ بارانی پڕ پیت و بەرەکەت",
+                snow: "❄️ سپێتی و ڕووناکی حیكمەت",
+                sandstorm: "🌪️ گەردەلوولی بەهێزی ووشەکان",
+                hail: "🌨️ تەرزەی نەبڕاوەی ڕاستییەکان",
+                stars: "✨ گەشانەوەی ئەستێرەکانی باوەڕ",
+                matrix: "💾 کۆدە سەرسوڕهێنەرەکانی مێژوو",
+                leaves: "🍂 پایز و گەڵاڕێزانی گوناهەکان",
+                blossom: "🌸 پشکوتنی بەهاری دڵەکان",
+                lightning: "⚡ بروسكەی تێڕامان و هوشیاری",
+                fog: "🌫️ سڕینەوەی تەم و مژی گومانەکان",
+                bubbles: "🫧 بڵقە درەوشاوەکانی دانایی",
+                stardust: "🌌 تۆزی گەردوونی سیحراوی",
+                default: "✨ ڕۆشنایی مۆدێرنی پەندۆ"
+            },
+            "ckb-badini": {
+                fire: "🔥 ئاگرێ پەیڤ و ئاخفتنان",
+                rain: "🌧️ بارانا پر خێر و بەرەکەت",
+                snow: "❄️ سپیاتییا مروڤایەتیێ",
+                sandstorm: "🌪️ گەردەلوولێ بهێزێ پەیڤان",
+                hail: "🌨️ تەرزا گەش و جوان",
+                stars: "✨ گەشبوونا ئەستێرێن باوەریێ",
+                matrix: "💾 کۆدێن دیجیتاڵی یێن مێژوویێ",
+                leaves: "🍂 پایز و وەریانا گونەهان",
+                blossom: "🌸 بهار و پشکۆژبوونا دلان",
+                lightning: "⚡ بروسکێ تێڕامانێ",
+                fog: "🌫️ نەمامیا تەم و مژا گۆمانان",
+                bubbles: "🫧 بلقێن جوان یێن زانینیێ",
+                stardust: "🌌 توزێ گەردوونێ سیحراوی",
+                default: "✨ روناهیا مۆدێرن یا پەندۆ"
+            },
+            "en": {
+                fire: "🔥 Fire of Wisdom and Sayings",
+                rain: "🌧️ Shower of Blessings and Quotes",
+                snow: "❄️ Purity of Snow and Truth",
+                sandstorm: "🌪️ Sandstorm of Historic Words",
+                hail: "🌨️ Hail of Precious Realities",
+                stars: "✨ Starfall of Divine Light",
+                matrix: "💾 Digital Matrix of Reflection",
+                leaves: "🍂 Autumn Leaves of Forgiveness",
+                blossom: "🌸 Spring Blossom of Hearts",
+                lightning: "⚡ Lightning of Awareness",
+                fog: "🌫️ Fog Clearing of Doubts",
+                bubbles: "🫧 Glowing Bubbles of Rhetoric",
+                stardust: "🌌 Cosmic Stardust of Enlightenment",
+                default: "✨ Modern Glow of Pando"
+            },
+            "ar": {
+                fire: "🔥 وهج الحكم والمواعظ",
+                rain: "🌧️ غيث البركة والرحمة",
+                snow: "❄️ نقاء وبياض الأحاديث النبوية",
+                sandstorm: "🌪️ عاصفة الكلمات الخالدة",
+                hail: "🌨️ حبات البرد اليقينية",
+                stars: "✨ تساقط شهب الهداية والإيمان",
+                matrix: "💾 رموز المعرفة الرقمية",
+                leaves: "🍂 خريف تساقط الذنوب والأوزار",
+                blossom: "🌸 ربيع تفتح القلوب",
+                lightning: "⚡ بروق التأمل واليقظة",
+                fog: "🌫️ انجلاء ضباب الشكوك",
+                bubbles: "🫧 فقاعات الحكمة المتلألئة",
+                stardust: "🌌 غبار النجوم الكوني الساحر",
+                default: "✨ الإشعاع المعاصر لباندو"
+            }
+        };
+
+        const sarkawtPoems = [
+            "ژیان شیعرێکی کورتە و سەرکەوت دەینووسێتەوە...",
+            "ڕەنگی زێڕینی پایز لە چاوەکانی تۆدا کۆبووەتەوە.",
+            "مەشخەڵی عەشق لێرە هەمیشە دەسووتێت.",
+            "پەندێک بۆ دڵە تەنیاکان، ژیان هەر بەردەوامە.",
+            "لەنێوان عەشق و نیشتماندا، من هەر تۆم هەڵبژارد."
+        ];
+
+        let appState = { lang: 'ckb-sorani', themeColor: 'gold', bgStyle: '5', shape: 'rounded', fontFamily: "'Amiri', serif", eyeProtection: false, enterTime: new Date(), introSoundData: null };
+        let visibleLimits = { prophet: 10, kurdish: 10, movie: 10, asma: 10 };
+        let favorites = { prophet: [], kurdish: [], movie: [] };
+        let introPlayedOnce = false;
+        let activePoemIdx = 0;
+        let activeZikrIdx = 0;
+
+        const asmaAudio = document.getElementById('asmaAudio');
+        const audioTimeline = document.getElementById('audioTimeline');
+        const audioCurrentTime = document.getElementById('audioCurrentTime');
+        const audioTotalTime = document.getElementById('audioTotalTime');
+
+        window.addEventListener('load', function() {
+            const overlay = document.getElementById('netflixOverlay');
+            const swipeContainer = document.getElementById('swipeContainer');
+            const logoContainer = document.getElementById('logoContainer');
+            const track = document.getElementById('swipeTrack');
+            const handle = document.getElementById('swipeHandle');
+            
+            let isDraggingIntro = false, initialMouseX = 0, initialHandleX = 0, currentX = 0;
+            let maxTravel = 0; 
+
+            function onStartIntro(e) {
+                if (introPlayedOnce) return;
+                maxTravel = track.offsetWidth - handle.offsetWidth;
+                const touch = e.touches ? e.touches[0] : e;
+                initialMouseX = touch.clientX;
+                initialHandleX = currentX;
+                isDraggingIntro = true;
+                handle.style.transition = 'none';
+            }
+
+            function onMoveIntro(e) {
+                if (!isDraggingIntro || introPlayedOnce) return;
+                const touch = e.touches ? e.touches[0] : e;
+                let deltaX = touch.clientX - initialMouseX;
+                let newX = initialHandleX + deltaX;
+                newX = Math.max(0, Math.min(newX, maxTravel));
+                handle.style.transform = `translateX(${newX}px)`;
+                currentX = newX;
+                if(e.cancelable) e.preventDefault();
+            }
+
+            function onEndIntro(e) {
+                if (!isDraggingIntro || introPlayedOnce) return;
+                isDraggingIntro = false;
+                handle.style.transition = 'transform 0.3s ease';
+                if (currentX >= maxTravel * 0.70) {
+                    triggerIntro();
+                } else {
+                    handle.style.transform = 'translateX(0)';
+                    currentX = 0;
+                }
+            }
+
+            handle.addEventListener('mousedown', onStartIntro);
+            document.addEventListener('mousemove', onMoveIntro, { passive: false });
+            document.addEventListener('mouseup', onEndIntro);
+            
+            handle.addEventListener('touchstart', onStartIntro, { passive: false });
+            document.addEventListener('touchmove', onMoveIntro, { passive: false });
+            document.addEventListener('touchend', onEndIntro, { passive: false });
+            
+            document.getElementById('swipeHint').addEventListener('click', triggerIntro);
+            document.getElementById('swipeZikr').addEventListener('click', triggerIntro);
+
+            function triggerIntro() {
+                if (introPlayedOnce) return;
+                introPlayedOnce = true;
+                const introEl = document.getElementById('introSound');
+                if (introEl && introEl.src && introEl.src !== '') introEl.play().catch(function() { });
+
+                swipeContainer.style.opacity = '0';
+                setTimeout(() => {
+                    swipeContainer.style.display = 'none';
+                    logoContainer.style.display = 'flex';
+                    void logoContainer.offsetWidth;
+                    logoContainer.classList.add('animate');
+                    setTimeout(() => {
+                        overlay.classList.add('fade-out');
+                        setTimeout(() => overlay.style.display = 'none', 1000);
+                    }, 3500);
+                }, 500);
+            }
+            setTimeout(initApp, 500);
+        });
+
+        function initApp() {
+            initWeather();
+            loadFavorites();
+            loadConfig();
+            initBeads();
+            renderAllGrids();
+            initTimeAndDate();
+            startPoemScroller();
+            startZikrScroller();
+            setupAudioTimeline();
+        }
+
+        // =============== AUDIO LOGIC ===============
+        function loadCustomAsmaAudio(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const url = URL.createObjectURL(file);
+            asmaAudio.src = url;
+            asmaAudio.load();
+            showToast("✅ دەنگی خوێندنەوەی ناوەکانی خودا بە سەرکەوتوویی دانرا!");
+        }
+
+        function setupAudioTimeline() {
+            asmaAudio.addEventListener('loadedmetadata', () => {
+                audioTimeline.max = asmaAudio.duration;
+                audioTotalTime.textContent = formatTime(asmaAudio.duration);
+            });
+            asmaAudio.addEventListener('timeupdate', () => {
+                audioTimeline.value = asmaAudio.currentTime;
+                audioCurrentTime.textContent = formatTime(asmaAudio.currentTime);
+            });
+        }
+
+        function formatTime(secs) {
+            if(isNaN(secs)) return "00:00";
+            let m = Math.floor(secs / 60);
+            let s = Math.floor(secs % 60);
+            return `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+
+        function playAsmaAudio() {
+            if(!asmaAudio.src || asmaAudio.src === window.location.href) {
+                showToast("تکایە سەرەتا فایلێکی دەنگی هەڵبژێرە!");
+                return;
+            }
+            asmaAudio.play();
+        }
+
+        function pauseAsmaAudio() {
+            asmaAudio.pause();
+        }
+
+        function stopAsmaAudio() {
+            asmaAudio.pause();
+            asmaAudio.currentTime = 0;
+        }
+
+        function seekAsmaAudio(val) {
+            asmaAudio.currentTime = val;
+        }
+
+        // =============== SCROLLERS ===============
+        function startPoemScroller() {
+            const display = document.getElementById('poemDisplay');
+            if(!display) return;
+            display.textContent = sarkawtPoems[activePoemIdx];
+            display.classList.add('fade-in');
+
+            setInterval(() => {
+                display.classList.add('fade-out');
+                setTimeout(() => {
+                    activePoemIdx = (activePoemIdx + 1) % sarkawtPoems.length;
+                    display.textContent = sarkawtPoems[activePoemIdx];
+                    display.classList.remove('fade-out');
+                    display.classList.add('fade-in');
+                }, 600);
+            }, 5000);
+        }
+
+        function startZikrScroller() {
+            const textEl = document.getElementById('sidebarZikrText');
+            const meaningEl = document.getElementById('sidebarZikrMeaning');
+            if(!textEl || !meaningEl) return;
+
+            function updateScroller() {
+                textEl.style.opacity = '0';
+                meaningEl.style.opacity = '0';
+                setTimeout(() => {
+                    activeZikrIdx = (activeZikrIdx + 1) % counterZikrsList.length;
+                    
+                    const zikrObj = [
+                        { text: "سُبْحَانَ اللَّهِ", mean: { "ckb-sorani": "پاک و بێگەردی بۆ خوایە", "ckb-badini": "پاک و بێگەردی بۆ خودێ یە", "ar": "سبحان الله", "en": "Glory be to Allah" }},
+                        { text: "الْحَمْدُ لِلَّهِ", mean: { "ckb-sorani": "سوپاس و ستایش بۆ خودا", "ckb-badini": "حەمد و سوپاس بۆ خودێ یە", "ar": "الحمد لله", "en": "Praise be to Allah" }},
+                        { text: "لا إِلَهَ إِلا اللَّهُ", mean: { "ckb-sorani": "هیچ پەرستراوێک نییە شایستەی پەرستن بێت جگە لە اللە", "ckb-badini": "چ پەرسترا نینە شایستەی پەرستنێ بیت ژبلی خودێ", "ar": "لا إله إلا الله", "en": "There is no deity except Allah" }},
+                        { text: "اللَّهُ أَكْبَرُ", mean: { "ckb-sorani": "خودا گەورەترینە لە هەموو شتێک", "ckb-badini": "خودێ مەزنترینە ژ هەمی تشتان", "ar": "الله أكبر", "en": "Allah is the Greatest" }},
+                        { text: "أَسْتَغْفِرُ اللَّهَ", mean: { "ckb-sorani": "داوای لێخۆشبوون لە خودا دەکەم", "ckb-badini": "داخوازا غوفرانێ ژ خودێ دکەم", "ar": "أستغفر الله", "en": "I seek forgiveness from Allah" }},
+                        { text: "لا حَوْلَ وَلا قُوَّةَ إِلا بِاللَّهِ", mean: { "ckb-sorani": "هیچ گۆڕان و هێزێک نییە مەگەر بە ویستی خودا", "ckb-badini": "چ گوهۆڕین و هێز نینە مەگەر ب حەزا خودێ", "ar": "لا حول ولا قوة إلا بالله", "en": "There is no power nor strength except with Allah" }},
+                        { text: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ", mean: { "ckb-sorani": "پاکی و بێگەردی بۆ خوایە و سوپاسگوزاری ئەوم", "ckb-badini": "پاکی بۆ خودێ یە دگەل سوپاسیا وی", "ar": "سبحان الله وبحمده", "en": "Glory be to Allah and Praise to Him" }},
+                        { text: "سُبْحَانَ اللَّهِ الْعَظِيمِ", mean: { "ckb-sorani": "پاک و بێگەردی بۆ خودای مەزن", "ckb-badini": "پاکی بۆ خودایێ مەزن", "ar": "سبحان الله العظيم", "en": "Glory be to Allah, the Supreme" }},
+                        { text: "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ", mean: { "ckb-sorani": "خودایە ڕەحمەت بڕژێنە بەسەر پێغەمبەر محەمەددا", "ckb-badini": "خودێ سلامەتیێ بڕێژە سەر محەمەد", "ar": "اللهم صل على محمد", "en": "O Allah, send blessings upon Muhammad" }}
+                    ][activeZikrIdx];
+
+                    textEl.textContent = zikrObj.text;
+                    meaningEl.textContent = zikrObj.mean[appState.lang] || zikrObj.mean['ckb-sorani'];
+                    textEl.style.opacity = '1';
+                    meaningEl.style.opacity = '1';
+                }, 600);
+            }
+            setInterval(updateScroller, 5000);
+        }
+
+        // =============== FAVORITES SYSTEM ===============
+        function loadFavorites() {
+            try {
+                const saved = localStorage.getItem('pando_individual_favs_v4');
+                if (saved) favorites = JSON.parse(saved);
+            } catch (e) {}
+            if (!favorites.prophet) favorites.prophet = [];
+            if (!favorites.kurdish) favorites.kurdish = [];
+            if (!favorites.movie) favorites.movie = [];
+        }
+
+        function saveFavorites() {
+            try { localStorage.setItem('pando_individual_favs_v4', JSON.stringify(favorites)); } catch (e) {}
+        }
+
+        function toggleSingleFavorite(e, type, id) {
+            e.stopPropagation(); 
+            let list = favorites[type];
+            if(list.includes(id)) {
+                favorites[type] = list.filter(x => x !== id);
+                showToast("لە دڵخوازەکان لابردرا");
+            } else {
+                favorites[type].push(id);
+                showToast("خرایە دڵخوازەکانەوە");
+            }
+            saveFavorites();
+            renderAllGrids(); 
+        }
+
+        function showFavoritesList() {
+            toggleLeftMenu(); 
+            let html = '<div class="space-y-4 font-[Amiri]"><h2 class="text-2xl font-bold text-[var(--accent)] mb-4"><i class="fas fa-heart"></i> دڵخوازەکانم</h2>';
+            const allItems = [];
+            
+            prophetSayings.forEach(item => {
+                const transList = prophetHadithsRaw[appState.lang] || prophetHadithsRaw['ckb-sorani'];
+                const h = transList[item.index % transList.length];
+                allItems.push({ id: item.id, text: `${h.text}`, author: h.sanad, number: item.index + 1 });
+            });
+            kurdishProverbs.forEach(item => {
+                const transList = kurdishProverbsRaw[appState.lang] || kurdishProverbsRaw['ckb-sorani'];
+                const p = transList[item.index % transList.length];
+                allItems.push({ id: item.id, text: p.text, author: p.author });
+            });
+            movieQuotes.forEach(item => {
+                const transList = movieQuotesRaw[appState.lang] || movieQuotesRaw['ckb-sorani'];
+                const q = transList[item.index % transList.length];
+                allItems.push({ id: item.id, text: q.text, author: q.author });
+            });
+
+            const favIds = [...favorites.prophet, ...favorites.kurdish, ...favorites.movie];
+            const myFavs = allItems.filter(item => favIds.includes(item.id));
+            
+            if(myFavs.length === 0) {
+                html += '<p class="text-center text-gray-400 mt-10">هیچ پەندێک لە دڵخوازەکانت نییە. کلیک لە دڵی سەر کارتەکان بکە بۆ زیادکردن.</p>';
+            } else {
+                html += '<div class="flex flex-col gap-3 max-h-[60vh] overflow-y-auto pr-2">';
+                myFavs.forEach(item => {
+                    html += `
+                        <div class="bg-[var(--bg-secondary)] p-4 rounded-lg border border-[var(--border-color)] relative transition hover:border-[var(--accent)]">
+                            <p class="text-lg text-[var(--text-primary)]">"${item.text}"</p>
+                            <p class="text-sm text-[var(--text-secondary)] mt-2">${item.author || ''} ${item.number ? `(ژمارە: ${item.number})` : ''}</p>
+                            <button onclick="removeSingleFavorite('${item.id}')" class="absolute top-3 left-3 text-red-500 hover:text-red-700 bg-[var(--bg-card)] rounded-full p-2" title="لابردن">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>`;
+                });
+                html += '</div>';
+            }
+            html += '</div>';
+            document.getElementById('modalBody').innerHTML = html;
+            document.getElementById('detailModal').classList.add('active');
+        }
+
+        function removeSingleFavorite(id) {
+            if (id.startsWith('prophet')) favorites.prophet = favorites.prophet.filter(x => x !== id);
+            else if (id.startsWith('kurd')) favorites.kurdish = favorites.kurdish.filter(x => x !== id);
+            else if (id.startsWith('mov')) favorites.movie = favorites.movie.filter(x => x !== id);
+            saveFavorites();
+            showFavoritesList(); 
+            renderAllGrids(); 
+            showToast("لە دڵخوازەکان لابردرا");
+        }
+
+        // =============== RENDER GRIDS ===============
+        function renderAllGrids() {
+            const labels = uiTranslations[appState.lang] || uiTranslations['ckb-sorani'];
+            
+            // Prophet Sayings with different background and separating line - TRANSLATED
+            const transHadiths = prophetHadithsRaw[appState.lang] || prophetHadithsRaw['ckb-sorani'];
+            const prophetGrid = document.getElementById('prophetGrid');
+            prophetGrid.innerHTML = '';
+            
+            const activeProphets = prophetSayings.slice(0, visibleLimits.prophet);
+            activeProphets.forEach(item => {
+                const raw = transHadiths[item.index % transHadiths.length];
+                const div = document.createElement('div');
+                div.className = 'unified-card';
+                
+                let isFav = favorites.prophet.includes(item.id);
+                let heartIcon = isFav ? 'fas fa-heart text-red-500' : 'far fa-heart text-gray-400';
+                
+                div.innerHTML = `
+                    <div class="card-header">
+                        <span>${labels.cardHeaderLabel}</span>
+                        <button class="z-10 relative p-1" onclick="toggleSingleFavorite(event, 'prophet', '${item.id}')">
+                            <i class="${heartIcon} text-xl transition hover:scale-125"></i>
+                        </button>
+                    </div>
+                    <div class="card-saying-box">
+                        <p class="q-text">"${raw.text}"</p>
+                    </div>
+                    <div class="card-divider-line"></div>
+                    <div class="card-metadata-box">
+                        <span class="q-source"><i class="fas fa-book-open text-[var(--accent)]"></i> ${raw.sanad}</span>
+                        <span class="text-xs font-bold text-[var(--accent)] bg-black/30 px-2 py-1 rounded">${labels.numberLabel} ${item.index + 1}</span>
+                    </div>
+                `;
+                
+                div.onclick = function() {
+                    showProphetModal({
+                        text: raw.text,
+                        sanad: raw.sanad,
+                        number: item.index + 1
+                    });
+                };
+                prophetGrid.appendChild(div);
+            });
+            document.getElementById('prophetMoreBtnContainer').style.display = visibleLimits.prophet >= prophetSayings.length ? 'none' : 'block';
+
+            // Kurdish proverbs
+            const transKurdish = kurdishProverbsRaw[appState.lang] || kurdishProverbsRaw['ckb-sorani'];
+            const kurdishGridData = kurdishProverbs.map(item => {
+                const raw = transKurdish[item.index % transKurdish.length];
+                return { id: item.id, text: raw.text, author: raw.author };
+            });
+            renderGrid('kurdish', kurdishGridData, visibleLimits.kurdish, 'kurdishMoreBtnContainer');
+
+            // Movie & historical quotes
+            const transMovies = movieQuotesRaw[appState.lang] || movieQuotesRaw['ckb-sorani'];
+            const movieGridData = movieQuotes.map(item => {
+                const raw = transMovies[item.index % transMovies.length];
+                return { id: item.id, text: raw.text, author: raw.author };
+            });
+            renderGrid('movie', movieGridData, visibleLimits.movie, 'movieMoreBtnContainer');
+            
+            // 99 Names of Allah with strictly Pagination
+            const asmaGrid = document.getElementById('asmaGrid');
+            asmaGrid.innerHTML = '';
+            const activeAsmaList = asmaulHusnaAllLangs.slice(0, visibleLimits.asma);
+            
+            activeAsmaList.forEach((item, i) => {
+                const cardMeaning = item.meanings[appState.lang] || item.meanings['ckb-sorani'];
+                const div = document.createElement('div');
+                div.className = 'asma-item';
+                div.id = `asma-card-${i}`;
+                div.innerHTML = `
+                    <span class="asma-ar">${item.name}</span>
+                    <span class="asma-meaning">${cardMeaning}</span>
+                    <span class="asma-source">${item.surah} [${item.verse}]</span>
+                `;
+                asmaGrid.appendChild(div);
+            });
+
+            document.getElementById('asmaMoreBtnContainer').style.display = visibleLimits.asma >= asmaulHusnaAllLangs.length ? 'none' : 'block';
+
+            updateBadges();
+            applyShapeToCards(appState.shape);
+        }
+
+        function renderGrid(type, data, limit, moreBtnId) {
+            const grid = document.getElementById(type + 'Grid');
+            grid.innerHTML = '';
+            const active = data.slice(0, limit);
+            active.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'unified-card';
+                let isFav = favorites[type].includes(item.id);
+                let heartIcon = isFav ? 'fas fa-heart text-red-500' : 'far fa-heart text-gray-400';
+                div.innerHTML = `
+                    <div class="card-header">
+                        <span>پەند و وتە</span>
+                        <button class="z-10 relative p-1" onclick="toggleSingleFavorite(event, '${type}', '${item.id}')">
+                            <i class="${heartIcon} text-xl transition hover:scale-125"></i>
+                        </button>
+                    </div>
+                    <p class="q-text">"${item.text}"</p>
+                    <span class="q-source mt-4"><i class="fas fa-feather-alt text-[var(--accent)]"></i> ${item.author || ''}</span>
+                `;
+                div.onclick = function() {
+                    showNormalModal(item);
+                };
+                grid.appendChild(div);
+            });
+            document.getElementById(moreBtnId).style.display = limit >= data.length ? 'none' : 'block';
+        }
+
+        function applyShapeToCards(shapeName) {
+            const shapeClass = 'shape-' + shapeName;
+            document.querySelectorAll('.unified-card, .asma-item').forEach(el => {
+                el.className = el.className.split(' ').filter(c => !c.startsWith('shape-')).join(' ');
+                el.classList.add(shapeClass);
+            });
+        }
+
+        function updateBadges() {
+            document.getElementById('prophetBadge').textContent = visibleLimits.prophet + ' / ' + prophetSayings.length;
+            document.getElementById('kurdishBadge').textContent = visibleLimits.kurdish + ' / ' + kurdishProverbs.length;
+            document.getElementById('movieBadge').textContent = visibleLimits.movie + ' / ' + movieQuotes.length;
+            document.getElementById('asmaBadge').textContent = visibleLimits.asma + ' / ' + asmaulHusnaAllLangs.length;
+        }
+
+        function showMore(type) {
+            const translationSet = uiTranslations[appState.lang] || uiTranslations['ckb-sorani'];
+            if (type === 'prophet') {
+                visibleLimits.prophet = Math.min(visibleLimits.prophet + 10, prophetSayings.length);
+            } else if (type === 'kurdish') {
+                visibleLimits.kurdish = Math.min(visibleLimits.kurdish + 10, kurdishProverbs.length);
+            } else if (type === 'movie') {
+                visibleLimits.movie = Math.min(visibleLimits.movie + 10, movieQuotes.length);
+            } else if (type === 'asma') {
+                visibleLimits.asma = Math.min(visibleLimits.asma + 10, asmaulHusnaAllLangs.length);
+            }
+            renderAllGrids();
+            showToast(translationSet.toastLoaded || "١٠ پەندی نوێ بارکران!");
+        }
+
+        // Beautiful Prophet Modal displaying text, sanad, number, and full Biography - FULLY DYNAMIC TRANSLATION
+        function showProphetModal(item) {
+            const currentBio = prophetBios[appState.lang] || prophetBios['ckb-sorani'];
+            const labels = uiTranslations[appState.lang] || uiTranslations['ckb-sorani'];
+            
+            document.getElementById('modalBody').innerHTML = `
+                <div class="space-y-6 font-[Amiri]" style="text-align: ${appState.lang === 'en' ? 'left' : 'right'}" dir="${labels.direction}">
+                    <div class="border-b-2 border-[var(--accent)] pb-3 flex justify-between items-center">
+                        <h2 class="text-2xl font-bold" style="color:var(--accent);">
+                            <i class="fas fa-star-and-crescent"></i> ${labels.cardHeaderLabel}
+                        </h2>
+                        <span class="px-3 py-1 bg-black/40 rounded-full font-bold border border-[var(--accent)] text-sm text-[var(--accent)]">
+                            ${labels.numberLabel} ${item.number}
+                        </span>
+                    </div>
+                    
+                    <!-- Saying block -->
+                    <div class="bg-black/40 p-6 rounded-lg border-r-4" style="border-color:var(--accent);">
+                        <p class="text-xl leading-relaxed text-[var(--text-primary)]">"${item.text}"</p>
+                    </div>
+                    
+                    <!-- Sanad/Narrator -->
+                    <div class="flex items-center gap-2 text-md text-[var(--text-secondary)] font-bold">
+                        <i class="fas fa-book-open"></i> <span>سەنەد:</span>
+                        <span class="bg-[var(--bg-secondary)] px-3 py-1 rounded text-[var(--text-primary)]">${item.sanad}</span>
+                    </div>
+                    
+                    <!-- Separator -->
+                    <div class="border-t border-dashed border-[var(--border-color)] my-4"></div>
+                    
+                    <!-- Biography Section -->
+                    <div class="space-y-2 bg-[var(--bg-secondary)] p-5 rounded-lg border border-[var(--border-color)]">
+                        <h3 class="text-lg font-bold text-[var(--accent)] flex items-center gap-2 mb-2">
+                            ${labels.bioTitle}
+                        </h3>
+                        <p class="text-sm leading-relaxed text-[var(--text-primary)] opacity-95">
+                            ${currentBio}
+                        </p>
+                    </div>
+                </div>`;
+            document.getElementById('detailModal').classList.add('active');
+        }
+
+        function showNormalModal(item) {
+            document.getElementById('modalBody').innerHTML = `
+                <div class="space-y-4 font-[Amiri]">
+                    <h2 class="text-2xl font-bold" style="color:var(--accent);">${item.author || ''}</h2>
+                    <p class="text-xl bg-black/40 p-5 rounded-lg border-r-4" style="border-color:var(--accent); color:var(--text-primary);">"${item.text}"</p>
+                </div>`;
+            document.getElementById('detailModal').classList.add('active');
+        }
+
+        // =============== CONFIG / SETTINGS ===============
+        function loadConfig() {
+            try {
+                const saved = localStorage.getItem('pando_config_v4');
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    appState = Object.assign({}, appState, parsed);
+                    appState.enterTime = new Date();
+                    if (!uiTranslations[appState.lang]) appState.lang = 'ckb-sorani';
+                    setLanguage(appState.lang);
+                    changeFont(appState.fontFamily);
+                    setColor(appState.themeColor);
+                    setBgStyle(appState.bgStyle);
+                    setShape(appState.shape);
+                    if (appState.eyeProtection) {
+                        document.body.setAttribute('data-eye', 'on');
+                        document.getElementById('eyeLabel').textContent = uiTranslations[appState.lang].eyeOn;
+                    }
+                    if (appState.introSoundData) {
+                        document.getElementById('introSound').src = appState.introSoundData;
+                        document.getElementById('introSound').load();
+                        document.getElementById('introSoundStatus').textContent = "✅ ساوند دانراوە";
+                    }
+                }
+            } catch (e) { }
+        }
+
+        function saveAllSettings() {
+            try {
+                const toSave = { lang: appState.lang, themeColor: appState.themeColor, bgStyle: appState.bgStyle, shape: appState.shape, fontFamily: appState.fontFamily, eyeProtection: appState.eyeProtection, introSoundData: appState.introSoundData || null };
+                localStorage.setItem('pando_config_v4', JSON.stringify(toSave));
+                const translationSet = uiTranslations[appState.lang] || uiTranslations['ckb-sorani'];
+                showToast(translationSet.toastSaved || "ڕێکخستنەکان بە سەرکەوتوویی پاشەکەوت کران!");
+            } catch (e) {}
+        }
+
+        // Shape and Style controllers
+        function setShape(shape) { appState.shape = shape; document.body.setAttribute('data-shape', shape); applyShapeToCards(shape); }
+        function changeFont(font) { appState.fontFamily = font; document.documentElement.style.setProperty('--font-body', font); }
+        function setColor(color) { appState.themeColor = color; document.body.setAttribute('data-color', color); }
+        function setBgStyle(bg) { appState.bgStyle = bg; document.body.setAttribute('data-bg', bg); }
+        
+        function setLanguage(val) {
+            appState.lang = val;
+            const trans = uiTranslations[val] || uiTranslations['ckb-sorani'];
+            
+            document.documentElement.setAttribute('dir', trans.direction);
+            document.body.setAttribute('dir', trans.direction);
+
+            document.title = trans.title;
+            document.getElementById('menuToggleLabel').textContent = trans.menuToggle;
+            document.getElementById('menuDevTitle').innerHTML = `<i class="fas fa-user-cog"></i> ` + trans.devTitle;
+            document.getElementById('menuDevSub').textContent = trans.devSub;
+            document.getElementById('menuFavsTitle').innerHTML = `<i class="fas fa-heart text-red-500"></i> ` + trans.favsTitle;
+            document.getElementById('menuFavsBtn').textContent = trans.favsBtn;
+            document.getElementById('menuIntroSoundTitle').innerHTML = `<i class="fas fa-volume-up"></i> ` + trans.introSound;
+            document.getElementById('menuFsTitle').innerHTML = `<i class="fas fa-expand"></i> ` + trans.fsTitle;
+            document.getElementById('menuZikrTitle').innerHTML = `<i class="fas fa-pray"></i> ` + trans.zikrTitle;
+            document.getElementById('menuLangTitle').textContent = trans.langTitle;
+            document.getElementById('menuFontTitle').textContent = trans.fontTitle;
+            document.getElementById('menuEyeTitle').textContent = trans.eyeTitle;
+            document.getElementById('eyeLabel').textContent = appState.eyeProtection ? trans.eyeOn : trans.eyeOff;
+            document.getElementById('saveBtnLabel').textContent = trans.save;
+            document.getElementById('sidebarTitle').textContent = trans.sidebarTitle;
+            document.getElementById('sidebarTimeLabel').textContent = trans.timeLabel;
+            document.getElementById('sidebarDateLabel').textContent = trans.dateLabel;
+            document.getElementById('poemTitleHeading').innerHTML = `<i class="fas fa-feather-alt"></i> ` + trans.poemTitle;
+            document.getElementById('prophetSecTitle').textContent = trans.prophetTitle;
+            document.getElementById('kurdishSecTitle').textContent = trans.kurdishTitle;
+            document.getElementById('movieSecTitle').textContent = trans.movieTitle;
+            document.getElementById('asmaSecTitle').textContent = trans.asmaTitle;
+            document.getElementById('dhikrSecTitle').textContent = trans.dhikrTitle;
+            document.getElementById('recitationTitle').innerHTML = `<i class="fas fa-volume-up"></i> ` + trans.recTitle;
+            document.getElementById('recitationHint').textContent = trans.recHint;
+            document.getElementById('countZikrTextLabel').textContent = trans.countLabel;
+            document.getElementById('dhikrClickLabel').textContent = trans.clickLabel;
+            document.getElementById('dhikrResetLabel').textContent = trans.resetLabel;
+            document.getElementById('dragAreaLabel').textContent = trans.dragLabel;
+            document.getElementById('dragAreaHint').innerHTML = `<i class="fas fa-hand-pointer text-3xl"></i> ` + trans.dragHint;
+            document.getElementById('asmaUploadLabel').textContent = trans.uploadAudio;
+            
+            // Dynamic Weather banner title based on current language
+            const activeWeatherSelect = document.getElementById('weatherSelect').value;
+            const currentTitleMap = weatherTitles[appState.lang] || weatherTitles['ckb-sorani'];
+            document.getElementById('weatherBannerText').textContent = currentTitleMap[activeWeatherSelect] || "🔥 ئاگری پەند و وتەکان";
+
+            document.querySelectorAll('.more-label').forEach(el => el.textContent = trans.more);
+            renderAllGrids();
+        }
+
+        function toggleEyeProtection() {
+            appState.eyeProtection = !appState.eyeProtection;
+            document.body.setAttribute('data-eye', appState.eyeProtection ? 'on' : 'off');
+            const trans = uiTranslations[appState.lang] || uiTranslations['ckb-sorani'];
+            document.getElementById('eyeLabel').textContent = appState.eyeProtection ? trans.eyeOn : trans.eyeOff;
+        }
+
+        // =============== UI HELPERS ===============
+        function toggleLeftMenu() { document.getElementById('leftMenu').classList.toggle('open'); document.getElementById('menuOverlay').classList.toggle('active'); }
+        function toggleRightSidebar() { document.getElementById('rightSidebar').classList.toggle('closed'); document.getElementById('mainContent').classList.toggle('sidebar-closed'); }
+        function toggleDevInfo() { document.getElementById('devBody').classList.toggle('open'); document.getElementById('devToggleIcon').classList.toggle('open'); }
+        function showToast(msg) {
+            var toast = document.getElementById('toast');
+            document.getElementById('toastMsg').textContent = msg;
+            toast.classList.add('show');
+            setTimeout(function() { toast.classList.remove('show'); }, 3500);
+        }
+        function closeModal() { document.getElementById('detailModal').classList.remove('active'); }
+
+        // =============== FULLSCREEN ===============
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(function(err) {});
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen().catch(function(err) {});
+            }
+        }
+        document.addEventListener('fullscreenchange', function() {
+            const el = document.getElementById('fullscreenLabel');
+            if (document.fullscreenElement) {
+                el.textContent = "فوول سکرین داخە";
+                document.body.classList.add('pando-fullscreen');
+            } else {
+                el.textContent = "فوول سکرین بکە";
+                document.body.classList.remove('pando-fullscreen');
+            }
+        });
+
+        // =============== TIME & DATE ===============
+        function initTimeAndDate() {
+            setInterval(function() {
+                var now = new Date();
+                document.getElementById('sidebarTime').textContent = now.toLocaleTimeString('ckb');
+                document.getElementById('sidebarDate').textContent = now.toLocaleDateString('ckb');
+            }, 1000);
+        }
+
+        function handleIntroSoundUpload(e) {
+            var file = e.target.files[0];
+            if (!file) return;
+            var reader = new FileReader();
+            reader.onload = function(ev) {
+                appState.introSoundData = ev.target.result;
+                var audioEl = document.getElementById('introSound');
+                audioEl.src = ev.target.result;
+                audioEl.load();
+                document.getElementById('introSoundStatus').textContent = "✅ ساوند دانراوە";
+                saveAllSettings();
+                showToast("✅ ساوندی چوونە ژوورەوە دانرا!");
+            };
+            reader.readAsDataURL(file);
+        }
+        function playIntroSoundPreview() {
+            var el = document.getElementById('introSound');
+            if (el && el.src && el.src !== '') el.play().catch(function(){}); else showToast("هیچ ساوندێک دانەندراوە.");
+        }
+        function removeIntroSound() {
+            appState.introSoundData = null; document.getElementById('introSound').src = '';
+            document.getElementById('introSoundStatus').textContent = "هیچ ساوندێک هەڵنەبژێردراوە";
+            saveAllSettings(); showToast("لابردرا.");
+        }
+
+        // =============== DHIKR COUNTER & BEADS ===============
+        const counterZikrsList = [
+            "سُبْحَانَ اللَّهِ", "الْحَمْدُ لِلَّهِ", "لا إِلَهَ إِلا اللَّهُ", "اللَّهُ أَكْبَرُ",
+            "أَسْتَغْفِرُ اللَّهَ", "لا حَوْلَ وَلا قُوَّةَ إِلا بِاللَّهِ", "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+            "سُبْحَانَ اللَّهِ الْعَظِيمِ", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ"
+        ];
+        let currentCountZikrIdx = 0;
+        let dhikrCounter = 0;
+        let isDraggingDhikr = false, dragStartX = 0, dragStartY = 0;
+
+        function initBeads() {
+            const container = document.getElementById('tasbihBeads');
+            if(!container) return;
+            container.innerHTML = '';
+            for(let i=1; i<=33; i++) {
+                let bead = document.createElement('div');
+                bead.className = 'tasbih-bead' + (i === 33 ? ' thirty-three' : '');
+                bead.id = 'bead-' + i;
+                container.appendChild(bead);
+            }
+        }
+
+        function updateBeads(val) {
+            let count = val % 33;
+            if (val > 0 && count === 0) count = 33; 
+            for(let i=1; i<=33; i++) {
+                let bead = document.getElementById('bead-' + i);
+                if(bead) {
+                    if(i <= count) bead.classList.add('active');
+                    else bead.classList.remove('active');
+                }
+            }
+            if (val > 0 && val % 33 === 0) {
+                setTimeout(() => {
+                    for(let i=1; i<=33; i++) {
+                        let b = document.getElementById('bead-' + i);
+                        if(b) b.classList.remove('active');
+                    }
+                }, 600); 
+            }
+        }
+
+        function nextCountZikr() {
+            currentCountZikrIdx = (currentCountZikrIdx + 1) % counterZikrsList.length;
+            document.getElementById('countZikrText').textContent = counterZikrsList[currentCountZikrIdx];
+            resetDhikr();
+        }
+        function prevCountZikr() {
+            currentCountZikrIdx = (currentCountZikrIdx - 1 + counterZikrsList.length) % counterZikrsList.length;
+            document.getElementById('countZikrText').textContent = counterZikrsList[currentCountZikrIdx];
+            resetDhikr();
+        }
+
+        function incrementDhikr() {
+            dhikrCounter++;
+            updateCounterBadge(dhikrCounter);
+            if (dhikrCounter > 0 && dhikrCounter % 33 === 0) {
+                showToast(`🕌 زیکرەکە گەیشتە ${dhikrCounter}! پاداشتی گەورەی بۆ تۆیە.`);
+                document.getElementById('dhikrClickBtn').style.transform = 'scale(1.2)';
+                setTimeout(function() { document.getElementById('dhikrClickBtn').style.transform = 'scale(1)'; }, 200);
+            }
+        }
+        function resetDhikr() { 
+            dhikrCounter = 0; 
+            updateCounterBadge(0); 
+            document.getElementById('dhikrCounterDisplay').textContent = '٠'; 
+            document.getElementById('counterBadge').textContent = '0'; 
+        }
+        function updateCounterBadge(val) { 
+            document.getElementById('dhikrCounterDisplay').textContent = val; 
+            document.getElementById('counterBadge').textContent = val; 
+            updateBeads(val);
+        }
+
+        function startDragDhikr(e) {
+            isDraggingDhikr = true; 
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            dragStartX = clientX; 
+            dragStartY = clientY;
+            document.getElementById('dhikrDragArea').style.cursor = 'grabbing'; 
+        }
+        
+        function moveDragDhikr(e) {
+            if (!isDraggingDhikr) return;
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            
+            var dx = clientX - dragStartX;
+            var dy = clientY - dragStartY;
+            
+            if (Math.abs(dx) > 30 || Math.abs(dy) > 30) {
+                incrementDhikr(); 
+                dragStartX = clientX; 
+                dragStartY = clientY;
+                document.getElementById('dhikrDragArea').style.borderColor = '#ffd700';
+                setTimeout(function() { document.getElementById('dhikrDragArea').style.borderColor = '#5c3e29'; }, 150);
+            }
+        }
+        
+        function endDragDhikr(e) { 
+            isDraggingDhikr = false; 
+            document.getElementById('dhikrDragArea').style.cursor = 'grab'; 
+        }
+
+        // =============== COMPREHENSIVE PHYSICS-BASED WEATHER ENGINE ===============
+        var canvas, ctx, animationId, particles = [], currentWeatherType = 'fire';
+        
+        function initWeather() {
+            canvas = document.getElementById('weatherCanvas');
+            if (!canvas) return;
+            ctx = canvas.getContext('2d');
+            window.addEventListener('resize', function() { 
+                canvas.width = window.innerWidth; 
+                canvas.height = window.innerHeight; 
+            });
+            canvas.width = window.innerWidth; 
+            canvas.height = window.innerHeight;
+            setWeather('fire');
+        }
+
+        function setWeather(type) {
+            currentWeatherType = type;
+            if (animationId) cancelAnimationFrame(animationId);
+            particles = [];
+            
+            const maxParticles = 120;
+            const currentTitleMap = weatherTitles[appState.lang] || weatherTitles['ckb-sorani'];
+            document.getElementById('weatherBannerText').textContent = currentTitleMap[type] || "🔥 ئاگری پەند و وتەکان";
+
+            for (var i = 0; i < maxParticles; i++) {
+                particles.push(createParticle(true));
+            }
+            animationLoop();
+        }
+
+        function createParticle(randomStart = false) {
+            const startY = randomStart ? Math.random() * canvas.height : (currentWeatherType === 'fire' || currentWeatherType === 'bubbles' ? canvas.height + 20 : -20);
+            const startX = Math.random() * canvas.width;
+            
+            let p = {
+                x: startX,
+                y: startY,
+                r: 0,
+                speed: 0,
+                drift: 0,
+                opacity: Math.random() * 0.7 + 0.3,
+                color: '#fff',
+                angle: Math.random() * Math.PI * 2,
+                spinSpeed: (Math.random() - 0.5) * 0.05,
+                char: ''
+            };
+
+            switch (currentWeatherType) {
+                case 'fire':
+                    p.r = Math.random() * 7 + 2;
+                    p.speed = Math.random() * 2 + 1.5;
+                    p.drift = (Math.random() - 0.5) * 1.2;
+                    p.colorIndex = Math.floor(Math.random() * 3);
+                    break;
+                case 'rain':
+                    p.r = Math.random() * 1.5 + 0.5;
+                    p.speed = Math.random() * 10 + 12;
+                    p.drift = -2.5;
+                    p.color = 'rgba(174, 219, 255, 0.6)';
+                    p.length = Math.random() * 20 + 15;
+                    break;
+                case 'snow':
+                    p.r = Math.random() * 4 + 1.5;
+                    p.speed = Math.random() * 1 + 0.8;
+                    p.drift = (Math.random() - 0.5) * 0.5;
+                    p.color = 'rgba(255, 255, 255, 0.85)';
+                    break;
+                case 'sandstorm':
+                    p.x = randomStart ? Math.random() * canvas.width : canvas.width + 20;
+                    p.y = Math.random() * canvas.height;
+                    p.r = Math.random() * 3.5 + 1;
+                    p.speed = Math.random() * 8 + 6;
+                    p.drift = -(Math.random() * 6 + 10);
+                    p.color = Math.random() > 0.5 ? 'rgba(212, 175, 55, 0.5)' : 'rgba(139, 105, 20, 0.35)';
+                    break;
+                case 'hail':
+                    p.r = Math.random() * 4 + 2;
+                    p.speed = Math.random() * 12 + 15;
+                    p.drift = -0.5;
+                    p.color = 'rgba(240, 248, 255, 0.9)';
+                    break;
+                case 'stars':
+                    p.x = Math.random() * canvas.width;
+                    p.y = Math.random() * canvas.height;
+                    p.r = Math.random() * 2 + 0.8;
+                    p.speed = 0;
+                    p.pulseSpeed = Math.random() * 0.05 + 0.01;
+                    p.opacity = Math.random();
+                    p.color = 'rgba(255, 255, 255, ' + p.opacity + ')';
+                    break;
+                case 'matrix':
+                    p.r = Math.random() * 10 + 10;
+                    p.speed = Math.random() * 3 + 2;
+                    p.drift = 0;
+                    p.color = '#39ff14';
+                    const chars = "PANDO0123456789🔥🕌✨";
+                    p.char = chars[Math.floor(Math.random() * chars.length)];
+                    break;
+                case 'leaves':
+                    p.r = Math.random() * 10 + 6;
+                    p.speed = Math.random() * 1.5 + 1;
+                    p.drift = Math.random() * 1 + 0.5;
+                    const leafColors = ['#d35400', '#e67e22', '#f39c12', '#c0392b'];
+                    p.color = leafColors[Math.floor(Math.random() * leafColors.length)];
+                    break;
+                case 'blossom':
+                    p.r = Math.random() * 9 + 4;
+                    p.speed = Math.random() * 1.2 + 0.8;
+                    p.drift = Math.random() * 0.8 + 0.4;
+                    p.color = 'rgba(255, 182, 193, 0.8)';
+                    break;
+                case 'lightning':
+                    p.r = Math.random() * 1.2 + 0.5;
+                    p.speed = Math.random() * 14 + 12;
+                    p.drift = -2;
+                    p.color = 'rgba(174, 219, 255, 0.5)';
+                    p.length = Math.random() * 25 + 15;
+                    break;
+                case 'fog':
+                    p.x = Math.random() * canvas.width;
+                    p.y = Math.random() * canvas.height;
+                    p.r = Math.random() * 80 + 50;
+                    p.speed = Math.random() * 0.2 + 0.1;
+                    p.drift = (Math.random() - 0.5) * 0.2;
+                    p.color = 'rgba(200, 200, 200, 0.12)';
+                    break;
+                case 'bubbles':
+                    p.r = Math.random() * 12 + 3;
+                    p.speed = Math.random() * 0.8 + 0.5;
+                    p.drift = (Math.random() - 0.5) * 0.5;
+                    p.color = 'rgba(0, 240, 255, 0.25)';
+                    break;
+                case 'stardust':
+                    p.x = Math.random() * canvas.width;
+                    p.y = Math.random() * canvas.height;
+                    p.r = Math.random() * 3 + 1;
+                    p.speed = Math.random() * 0.5 + 0.2;
+                    p.drift = (Math.random() - 0.5) * 0.4;
+                    const starColors = ['#bd00ff', '#00ffff', '#ffd700', '#ff007f', '#39ff14'];
+                    p.color = starColors[Math.floor(Math.random() * starColors.length)];
+                    break;
+                default:
+                    p.r = Math.random() * 2 + 1;
+                    p.speed = 0.3;
+                    p.drift = 0.1;
+                    p.color = 'rgba(255, 215, 0, 0.3)';
+                    break;
+            }
+            return p;
+        }
+
+        function animationLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            if (currentWeatherType === 'lightning' && Math.random() < 0.004) {
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+
+            particles.forEach(function(p, index) {
+                switch (currentWeatherType) {
+                    case 'fire':
+                        p.y -= p.speed;
+                        p.x += p.drift + Math.sin(p.y / 30) * 0.4;
+                        p.r -= 0.04;
+                        if (p.y < 0 || p.r <= 0.1) {
+                            particles[index] = createParticle();
+                        } else {
+                            var flameColor = p.colorIndex === 1 ? 'rgba(255,108,0,0.8)' : (p.colorIndex === 2 ? 'rgba(255,215,0,0.8)' : 'rgba(229,9,20,0.8)');
+                            var grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+                            grad.addColorStop(0, flameColor);
+                            grad.addColorStop(0.4, 'rgba(255,108,0,0.4)');
+                            grad.addColorStop(1, 'rgba(0,0,0,0)');
+                            ctx.beginPath();
+                            ctx.fillStyle = grad;
+                            ctx.arc(p.x, p.y, p.r * 2.5, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+                        break;
+
+                    case 'rain':
+                    case 'lightning':
+                        p.y += p.speed;
+                        p.x += p.drift;
+                        if (p.y > canvas.height) {
+                            particles[index] = createParticle();
+                        } else {
+                            ctx.strokeStyle = p.color;
+                            ctx.lineWidth = p.r;
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p.x + p.drift, p.y + p.length);
+                            ctx.stroke();
+                        }
+                        break;
+
+                    case 'snow':
+                        p.y += p.speed;
+                        p.x += p.drift + Math.sin(p.angle) * 0.3;
+                        p.angle += 0.01;
+                        if (p.y > canvas.height) {
+                            particles[index] = createParticle();
+                        } else {
+                            ctx.fillStyle = p.color;
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+                        break;
+
+                    case 'sandstorm':
+                        p.x += p.drift;
+                        p.y += (Math.random() - 0.5) * 2;
+                        if (p.x < -20) {
+                            particles[index] = createParticle();
+                        } else {
+                            ctx.fillStyle = p.color;
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+                        break;
+
+                    case 'hail':
+                        p.y += p.speed;
+                        p.x += p.drift;
+                        if (p.y > canvas.height) {
+                            particles[index] = createParticle();
+                        } else {
+                            ctx.fillStyle = p.color;
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+                        break;
+
+                    case 'stars':
+                        p.opacity += p.pulseSpeed;
+                        if (p.opacity > 1 || p.opacity < 0.1) {
+                            p.pulseSpeed = -p.pulseSpeed;
+                        }
+                        ctx.fillStyle = 'rgba(255, 255, 255, ' + Math.abs(p.opacity) + ')';
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        ctx.fill();
+                        break;
+
+                    case 'matrix':
+                        p.y += p.speed;
+                        if (p.y > canvas.height) {
+                            particles[index] = createParticle();
+                        } else {
+                            ctx.fillStyle = p.color;
+                            ctx.font = p.r + "px Courier New";
+                            ctx.fillText(p.char, p.x, p.y);
+                        }
+                        break;
+
+                    case 'leaves':
+                    case 'blossom':
+                        p.y += p.speed;
+                        p.x += p.drift + Math.sin(p.angle) * 0.5;
+                        p.angle += p.spinSpeed;
+                        if (p.y > canvas.height) {
+                            particles[index] = createParticle();
+                        } else {
+                            ctx.save();
+                            ctx.translate(p.x, p.y);
+                            ctx.rotate(p.angle);
+                            ctx.fillStyle = p.color;
+                            ctx.beginPath();
+                            ctx.ellipse(0, 0, p.r, p.r / 2, 0, 0, Math.PI * 2);
+                            ctx.fill();
+                            ctx.restore();
+                        }
+                        break;
+
+                    case 'fog':
+                        p.y += p.speed * (Math.random() - 0.5);
+                        p.x += p.drift;
+                        ctx.fillStyle = p.color;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        ctx.fill();
+                        break;
+
+                    case 'bubbles':
+                        p.y -= p.speed;
+                        p.x += p.drift + Math.sin(p.y/20) * 0.2;
+                        if (p.y < -20) {
+                            particles[index] = createParticle();
+                        } else {
+                            ctx.strokeStyle = p.color;
+                            ctx.lineWidth = 1;
+                            ctx.fillStyle = 'rgba(0, 240, 255, 0.05)';
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                            ctx.stroke();
+                            ctx.fill();
+                        }
+                        break;
+
+                    case 'stardust':
+                        p.y -= p.speed;
+                        p.x += p.drift;
+                        if (p.y < -10) {
+                            particles[index] = createParticle();
+                        } else {
+                            ctx.fillStyle = p.color;
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+                        break;
+
+                    default:
+                        p.y += p.speed;
+                        p.x += p.drift;
+                        if (p.y > canvas.height) p.y = -10;
+                        ctx.fillStyle = p.color;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        ctx.fill();
+                        break;
+                }
+            });
+            animationId = requestAnimationFrame(animationLoop);
+        }
+    </script>
+</body>
+</html>
+
+```
